@@ -1,16 +1,16 @@
 const data = require('../db/celularesDatos')
 
 const celularesController = {
-    index : function (req,res) {
+    'index' : function (req,res) {
         res.render('index')
     },
-    marcas : function () {
+    'marcas' : function () {
         
     },
-    modelos : function () {
+    'modelos' : function () {
         
     },
-   comentarios : function () {
+   'comentarios' : function () {
         
     }
 
