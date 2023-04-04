@@ -9,8 +9,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 1,
-                    usuario: "juan",
-                    texto:"Muy buenas zapatillas",
+                    usuario: "Alberto",
+                    texto:"Muy completo",
                 },
             ]
         },
@@ -24,8 +24,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 2,
-                    usuario: "Gianfranco",
-                    texto:"Muy buenas zapatillas",
+                    usuario: "Marcelo",
+                    texto:"Gran opcion!",
                 },
             ]
         },
@@ -38,8 +38,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 3,
-                    usuario: "Bautista",
-                    texto:"Muy buenas zapatillas",
+                    usuario: "Ignacio",
+                    texto:"Promete mas de lo que es",
                 },
             ]
         },
@@ -52,7 +52,7 @@ const celulares = {
             comentarios: [
                 {
                     id: 4,
-                    usuario: "Olivier",
+                    usuario: "Pedro",
                     texto:"La calidad no era lo que esperaba",
                 },
             ]
@@ -66,8 +66,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 5,
-                    usuario: "Matias",
-                    texto:"Muy facheras pero me hicieron doler los pies",
+                    usuario: "Sergio",
+                    texto:"Gran producto acorde a su precio",
                 },
             ]
         },
@@ -79,8 +79,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 6,
-                    usuario: "Baltazar",
-                    texto:"La mejor compra en mucho timpo!",
+                    usuario: "Mateo",
+                    texto:"Ame este celular y sus cualidades",
                 },
             ]
         },
@@ -92,8 +92,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 7,
-                    usuario: "Micaela",
-                    texto:"Me gustarian mas con otros colores, son dificiles de convinar",
+                    usuario: "Mica",
+                    texto:"El producto llego en menos tiempo del esperado, gran servicio!",
                 },
             ]
         },
@@ -105,8 +105,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 8,
-                    usuario: "Nicole",
-                    texto:"Se demoraron con el envio pero cumplieron mis expectativas",
+                    usuario: "Joe",
+                    texto:"Gran camara para lograr sacra las mejores fotos",
                 },
             ]
         },
@@ -118,8 +118,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 9,
-                    usuario: "Maria Jose",
-                    texto:"Zapatillas muy buenas para el dia a dia!",
+                    usuario: "Maria",
+                    texto:"Quiero comunicarme con el soporte tecnico",
                 },
             ]
         },
@@ -131,8 +131,8 @@ const celulares = {
             comentarios: [
                 {
                     id: 10,
-                    usuario: "Maite",
-                    texto:"Las habia pedido en color rosa y me mandaron en rojo! No responden los mensajes.",
+                    usuario: "Aaron",
+                    texto:"Lo pedi en color negro y llego blanco! favor de responder los mensajes.",
                 },
             ]
         },
