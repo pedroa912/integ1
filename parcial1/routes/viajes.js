@@ -5,9 +5,11 @@ const productController = require('../controllers/viajesController');
 
 router.get('/', productController.index);
 
-router.get('/viaje/:id', productController.lugar);
+//router.get('/viaje/:id', productController.lugar);
 
-//router.get('//:genero', productController.genero);
+//router.get('/comentario/:id', productController.comentario);
+
+
 
 
 
