@@ -5,8 +5,9 @@ const productController = require('../controllers/celularesController');
 
 router.get('/', productController.index);
 
-//router.get('//:genero', productController.genero);
+router.get('/celulares', productController.modelos);
 
+//router.get('/productos/modelo/:id', productController.index);
 
 
 module.exports = router
