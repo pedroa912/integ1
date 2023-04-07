@@ -1,31 +1,9 @@
 const data = require('../db/celularesDatos');
 
 const celularesController = {
-    // index : function(req, res) {
-    //     return res.render('celulares', {
-    //         lista: celulares.lista,
-    //         mensaje: "Todos los celulares",
-    //         x : true
-    //     });
-    // },
     index : function (req, res) {
-        return res.render('index', {celulares: data.lista})
+        return res.render('index', {producto: data})
     },
-    detalle:  function(req,res) {
-        const id= req.params.id;
-        
-        const celular = db.celular.findByPk(id)
-       .then(function (producto) {
-        if (producto) {
-            console.log(producto);
-            res.render('product', {producto});
-        } else { 
-            res.render('search-results-not-found',{auth})
-        }
-       })
-       .catch(function(error){
-        res.send(error);
-       })},
     // modelos :function(req, res) {
     //     let modelos = req.params.modelo;
     //     let resultado = [];
@@ -44,6 +22,9 @@ const celularesController = {
     // },
     add: function (req, res) {
         return res.render('product-add')
+    },
+    resultadosBusqueda: function(req,res){
+        res.render('search-results')
     },
     show: function (req, res) {
         return res.render('product', {celular: data.lista})
