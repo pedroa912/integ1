@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 let usuariosController = require('../controllers/users')
 
+router.get('/', usuariosController.profile)
 
 router.get('/users', usuariosController.profile)
 

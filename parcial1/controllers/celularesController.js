@@ -11,6 +11,21 @@ const celularesController = {
     index : function (req, res) {
         return res.render('index', {celulares: data.lista})
     },
+    detalle:  function(req,res) {
+        const id= req.params.id;
+        
+        const celular = db.celular.findByPk(id)
+       .then(function (producto) {
+        if (producto) {
+            console.log(producto);
+            res.render('product', {producto});
+        } else { 
+            res.render('search-results-not-found',{auth})
+        }
+       })
+       .catch(function(error){
+        res.send(error);
+       })},
     // modelos :function(req, res) {
     //     let modelos = req.params.modelo;
     //     let resultado = [];
