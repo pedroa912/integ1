@@ -29,5 +29,5 @@ const celularesController = {
     show: function (req, res) {
         return res.render('product', {celular: data.lista})
     }
-}
+};
 module.exports = celularesController;
