@@ -6,13 +6,8 @@ const celulares = {
             descripcion :  "Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2532 x 1170 pixeles a 460 ppi ",
             foto : 'images/iphone-14.png', 
             fecha : " 25/01/2023",
-            comentarios: [
-                {
-                    id: 1,
-                    usuario: "Alberto",
-                    texto:"Muy completo",
-                },
-            ]
+
+
         },
  
         {
@@ -21,13 +16,8 @@ const celulares = {
             descripcion : " Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2556 x 1179 pixeles a 460 ppi",
             foto : 'images/iphone-14-pro.png',
             fecha : "17/01/2023",
-            comentarios: [
-                {
-                    id: 2,
-                    usuario: "Marcelo",
-                    texto:"Gran opcion!",
-                },
-            ]
+
+
         },
         {
             id : 3,
@@ -35,13 +25,7 @@ const celulares = {
             descripcion : "Pantalla Super Retina XDR, Pantalla OLED de 6.7 pulgadas (diagonal) sin marco y Resolución de 2796 x 1290 pixeles a 460 ppi",
             foto : "images/iphone-14-pro-max.webp ",
             fecha : "03/02/2023",
-            comentarios: [
-                {
-                    id: 3,
-                    usuario: "Ignacio",
-                    texto:"Promete mas de lo que es",
-                },
-            ]
+
         },
         {
             id : 4,
@@ -49,13 +33,6 @@ const celulares = {
             descripcion : "Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2532 x 1170 pixeles a 460 ppi",
             foto : "images/iphone-13.png",
             fecha : "13/09/2021",
-            comentarios: [
-                {
-                    id: 4,
-                    usuario: "Pedro",
-                    texto:"La calidad no era lo que esperaba",
-                },
-            ]
         },
         {
             id : 5,
@@ -63,13 +40,7 @@ const celulares = {
             descripcion : "Pantalla Retina HD, Pantalla widescreen LCD Multi-Touch de 4.7 pulgadas (diagonal) con tecnología IPS y Resolución de 1334 x 750 pixeles a 326 ppi",
             foto : "images/iphone-se-3ra.jpg",
             fecha : "13/09/2020 ",
-            comentarios: [
-                {
-                    id: 5,
-                    usuario: "Sergio",
-                    texto:"Gran producto acorde a su precio",
-                },
-            ]
+
         },
         {
             id: 6,
@@ -77,13 +48,7 @@ const celulares = {
             descripcion: " Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco, Resolución de 2532 x 1170 pixeles a 460 ppi",
             imagen: "images/iphone-12.jpg",
             fecha : "03/01/2023",
-            comentarios: [
-                {
-                    id: 6,
-                    usuario: "Mateo",
-                    texto:"Ame este celular y sus cualidades",
-                },
-            ]
+
         },
         {
             id: 7,
@@ -91,13 +56,7 @@ const celulares = {
             descripcion: " Liquid Retina HD, Pantalla LCD Multi-Touch de 6,1 pulgadas (en diagonal) con tecnología IPS, Resolución de 1.792 por 828 píxeles a 326 p/p",
             imagen: "images/iphone-11.png",
             fecha : "22/08/2022",
-            comentarios: [
-                {
-                    id: 7,
-                    usuario: "Mica",
-                    texto:"El producto llego en menos tiempo del esperado, gran servicio!",
-                },
-            ]
+
         },
         {
             id: 8,
@@ -105,13 +64,7 @@ const celulares = {
             descripcion: "Super Retina XDR, Pantalla OLED Multi-Touch de 5,8 pulgadas (en diagonal), Pantalla HDR, Resolución de 2.436 por 1.125 píxeles a 458 p/p",
             imagen: "images/iphone-11-pro.png",
             fecha : "24/10/2022",
-            comentarios: [
-                {
-                    id: 8,
-                    usuario: "Joe",
-                    texto:"Gran camara para lograr sacra las mejores fotos",
-                },
-            ]
+
         },
         {
             id: 9,
@@ -119,13 +72,7 @@ const celulares = {
             descripcion: "El iPhone X es un teléfono inteligente de Apple con pantalla OLED de 5.8 pulgadas, cámara trasera doble de 12 megapíxeles, procesador A11 Bionic, almacenamiento interno de 256 GB, carga inalámbrica y Face ID.",
             imagen: "images/iphone-x.png",
             fecha : "28/09/2021",
-            comentarios: [
-                {
-                    id: 9,
-                    usuario: "Maria",
-                    texto:"Quiero comunicarme con el soporte tecnico",
-                },
-            ]
+
         },
         {
             id: 10,
@@ -133,18 +80,62 @@ const celulares = {
             descripcion: "El iPhone 8 es un teléfono inteligente de Apple con pantalla LCD de 4.7 pulgadas, cámara trasera de 12 megapíxeles, procesador A11 Bionic, almacenamiento interno de 64 GB, carga inalámbrica y Touch ID.",
             imagen: "images/iphone-8.png",
             fecha : "06/04/2020",
-            comentarios: [
-                {
-                    id: 10,
-                    usuario: "Aaron",
-                    texto:"Lo pedi en color negro y llego blanco! favor de responder los mensajes.",
-                },
-            ]
         },
- 
- 
+    ],
+    
+    comentarios: [
+        { 
+            id: 1,
+            usuario: "Alberto",
+            texto:"Muy completo",
+        },
+        { 
+            id: 2,
+            usuario: "Marcelo",
+            texto:"Gran opcion!",
+        },
+        { 
+            id: 3,
+            usuario: "Ignacio",
+            texto:"Promete mas de lo que es",
+        },
+        { 
+            id: 4,
+            usuario: "Pedro",
+            texto:"La calidad no era lo que esperaba",
+        },
+        { 
+            id: 5,
+            usuario: "Sergio",
+            texto:"Gran producto acorde a su precio",
+        },
+        { 
+            id: 6,
+            usuario: "Mateo",
+            texto:"Ame este celular y sus cualidades",
+        },
+        { 
+            id: 7,
+            usuario: "Mica",
+            texto:"El producto llego en menos tiempo del esperado, gran servicio!",
+        },
+        { 
+            id: 8,
+            usuario: "Joe",
+            texto:"Gran camara para lograr sacra las mejores fotos",
+        },
+        { 
+            id: 9,
+            usuario: "Maria",
+            texto:"Quiero comunicarme con el soporte tecnico",
+        },
+        { 
+            id: 10,
+            usuario: "Aaron",
+            texto:"Lo pedi en color negro y llego blanco! favor de responder los mensajes.",
+        }
     ]
 };
 
 
-module.exports = celulares
+module.exports = celulares;
