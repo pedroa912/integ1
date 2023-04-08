@@ -19,7 +19,7 @@ const celulares = {
             id : 2,
             modelo : "iphone 14 pro",
             descripcion : " Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2556 x 1179 pixeles a 460 ppi",
-            foto : '/images/products/iphone-14-pro.png',
+            foto : '/images/products/iphone-14-pro.jpg',
             fecha : "17/01/2023",
             comentarios: [
                 {

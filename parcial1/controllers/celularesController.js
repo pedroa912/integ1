@@ -30,4 +30,4 @@ const celularesController = {
         return res.render('product', {celular: data.lista})
     }
 }
-module.exports = celularesController
+module.exports = celularesController;

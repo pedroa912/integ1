@@ -1,6 +1,6 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Raleway:ital,wght@1,300&family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,100&display=swap');
 
 /*====== Variables ======*/
 :root {
@@ -27,7 +27,8 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  font-family: 'Montserrat', sans-serif;
+  color: #ccc;
   font-weight: 300;
   background-color: var(--light-gray);
 }
@@ -68,7 +69,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: rgb(44,44,44);
 }
 
 .main-header_home-link,
@@ -196,12 +197,15 @@ hr {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  color: black;
+  font-family: 'Roboto Mono', monospace
 }
 
 .product-box_data h2 {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+  color: black;
 }
 
 .product-box_data span {
@@ -214,7 +218,7 @@ hr {
 .product-box_data p {
   font-size: 1.5em;
   width: 100%;
-  color: var(--gray);
+  color: black;
   margin: 0;
   height: 0;
   transition: 300ms;
@@ -269,7 +273,7 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: rgb(44,44,44);
   font-size: 3.5em;
 }
 

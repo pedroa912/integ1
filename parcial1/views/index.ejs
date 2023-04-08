@@ -1,4 +1,5 @@
 <%- include('../views/partials/head') %>
+
 <body>
 	<!-- Header -->
 	<%- include('../views/partials/header') %>
@@ -6,7 +7,7 @@
 	
 	<!-- Banner -->
 	<div class="banner">
-		<img src="images/apple-banner.jpg" alt="Banner de ofertas">
+		<img src="images/apple-banner.jpg" alt="">
 	</div>
 	<!-- /Banner -->
 
@@ -32,14 +33,14 @@
 			<% for(let i=0; i<10; i++) {%>
                 <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="/productos">
+                    <a href="/productos/productos">
                         <figure class="product-box_image">
                             <img src="<%= producto.lista[i].foto %>" alt="">
                         </figure>
                         <article class="product-box_data">
                             <h2> <%= producto.lista[i].modelo %></h2>
                             <p> <%= producto.lista[i].descripcion %></p>
-                            <p> <%= producto.lista[i].comentarios[i] %></p>
+                            <p>Comentarios: 50</p>
                         </article>
                     </a>
                 </section>
