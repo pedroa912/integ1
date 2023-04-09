@@ -1,13 +1,18 @@
 <%- include('../views/partials/head') %>
 
+
 <body>
 	<!-- Header -->
-	<%- include('../views/partials/header') %>
+	<% if(logueado) { %>
+        <%- include('../views/partials/headerLogueado.ejs') %>
+    <% } else { %>
+        <%- include('../views/partials/header.ejs') %>
+    <% } %>
 	<!-- /Header -->
 	
 	<!-- Banner -->
 	<div class="banner">
-		<img src="images/apple-banner.jpg" alt="">
+		<img src="images/banner.jpg" alt="">
 	</div>
 	<!-- /Banner -->
 

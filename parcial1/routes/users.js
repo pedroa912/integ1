@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
-let usuariosController = require('../controllers/users')
+let usuariosController = require('../controllers/usersController')
 
-router.get('/', usuariosController.profile)
 
-router.get('/users', usuariosController.profile)
+router.get('/perfil', usuariosController.profile)
 
 router.get('/edit', usuariosController.profileEdit)
 

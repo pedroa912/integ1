@@ -1,8 +1,9 @@
 const data = require('../db/celularesDatos');
+const users = require("../db/usuario");
 
 const celularesController = {
     index : function (req, res) {
-        return res.render('index', {producto: data})
+        return res.render('index', {producto: data, usuario: users, logueado: true})
     },
     // modelos :function(req, res) {
     //     let modelos = req.params.modelo;
@@ -21,10 +22,10 @@ const celularesController = {
     //     }
     // },
     add: function (req, res) {
-        return res.render('product-add')
+        return res.render('product-add', {usuario: users, logueado: true})
     },
     resultadosBusqueda: function(req,res){
-        res.render('search-results')
+        res.render('search-results', {producto: data})
     },
     show: function (req, res) {
         return res.render('product', {celular: data.lista})

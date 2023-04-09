@@ -1,6 +1,10 @@
 <%- include('../views/partials/head') %>
 <body>
-	<%- include('../views/partials/headerLogueado.ejs')%>
+	<% if(logueado) { %>
+        <%- include('../views/partials/headerLogueado.ejs') %>
+    <% } else { %>
+        <%- include('../views/partials/header.ejs') %>
+    <% } %>
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">

@@ -1,6 +1,10 @@
 <%- include('../views/partials/head') %>
 <body>
-	<%- include('../views/partials/header') %>
+	<% if(logueado) { %>
+        <%- include('../views/partials/headerLogueado.ejs') %>
+    <% } else { %>
+        <%- include('../views/partials/header.ejs') %>
+    <% } %>
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
@@ -8,12 +12,17 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
+			<h2 class="col-12">
 			</h2>
+			<form  action="" method="get">
+                <ul>
+                    <li><input class="form-input" type="file" name="ImagenProducto" id="" placeholder="Imagen de producto"></li>
+                    <li><input class="form-input" type="text" name="NombreProducto" id="" placeholder="Nombre del producto"></li>
+                    <li><input class="form-input" type="text" name="DescripcionProducto" id="" placeholder="Descripcion" ></li>
+                    <li><input class="form-input" type="datetime" name="FechaCargaProducto" id="" placeholder="Fecha de carga" ></li>
+                    <li><button class="form-label" type="submit">Agregar Producto</button></li>
+                </ul>
+            </form>
 
 	<%- include('../views/partials/footer') %>
 </body>
