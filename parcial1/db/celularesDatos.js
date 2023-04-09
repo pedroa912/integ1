@@ -133,6 +133,59 @@ const celulares = {
         },
  
  
+    ],
+    comentarios: [
+        {
+            id: 1,
+            usuario: "Fernando",
+            texto:"Me podrian pasar disponibilidad de colores?",
+        },
+        {
+            id: 2,
+            usuario: "Steve Jobs",
+            texto:"Agradecido de ser parte de esto!",
+        },
+        {
+            id: 3,
+            usuario: "Ignacio",
+            texto:"Promete mas de lo que es",
+        },
+        {
+            id: 4,
+            usuario: "Pedro",
+            texto:"La calidad no era lo que esperaba",
+        },
+        {
+            id: 5,
+            usuario: "Sergio",
+            texto:"Gran producto acorde a su precio",
+        },
+        {
+            id: 6,
+            usuario: "Mateo",
+            texto:"Ame este celular y sus cualidades",
+        },
+        {
+            id: 7,
+            usuario: "Mica",
+            texto:"El producto llego en menos tiempo del esperado, gran servicio!",
+        },
+        {
+            id: 8,
+            usuario: "Joe",
+            texto:"Gran camara para lograr sacra las mejores fotos",
+        },
+        {
+            id: 9,
+            usuario: "Maria",
+            texto:"Quiero comunicarme con el soporte tecnico",
+        },
+        {
+            id: 10,
+            usuario: "Aaron",
+            texto:"Lo pedi en color negro y llego blanco! favor de responder los mensajes.",
+        },
+
     ]
 };
 
