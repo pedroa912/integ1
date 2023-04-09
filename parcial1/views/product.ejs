@@ -1,14 +1,9 @@
 <%- include('../views/partials/head') %>
 <body>
-	<% if(logueado) { %>
-        <%- include('../views/partials/headerLogueado.ejs') %>
-    <% } else { %>
-        <%- include('../views/partials/header.ejs') %>
-    <% } %>
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= producto.lista[0].modelo %></h2> 
+			<h2 class="products-title"><%= celular[0].modelo %></h2> 
 			<p class="product-detail-description">
 				<a href="/productos/add">Editar</a>
 			</p>
@@ -16,9 +11,9 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/<%= producto.lista[0].foto %>" alt="" class="product-detail-img">
+					<img src="/images/products/<%= celular[0].foto %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= producto.lista[0].descripcion %></p>
+						<%= celular[0].descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
@@ -27,8 +22,8 @@
                                 <img src="/images/users/default-image.png" alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="profile.html">Nombre usuario:</strong> <%= producto.lista[0].comentarios[i].usuario %></a>
-                                    <%= producto.lista[0].comentarios[i].texto %></p>
+                                    <strong> <a href="profile.html">Nombre usuario:</strong> <%= celular[0].descripcion %></a>
+                                    <%= comentario[0].texto %></p>
                                 </div>
                             </article>
                         <% } %>

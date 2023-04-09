@@ -28,7 +28,7 @@ const celularesController = {
         res.render('search-results', {producto: data})
     },
     show: function (req, res) {
-        return res.render('product', {celular: data.lista})
+        return res.render('product', {celular: data.lista, comentario: data.comentarios})
     }
 };
 module.exports = celularesController;
