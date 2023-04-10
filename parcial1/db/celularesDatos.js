@@ -51,7 +51,13 @@ const celulares = {
             descripcion : "Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2532 x 1170 pixeles a 460 ppi",
             foto : "/images/products/iphone-13.png",
             fecha : "13/09/2021",
-            comentarios :  ['Me podrian pasar disponibilidad de colores?','"Agradecido de ser parte de esto!",','"Promete mas de lo que es",','"Ame este celular y sus cualidades",']
+            comentarios: [
+                {
+                    id: 4,
+                    usuario: "Mariano",
+                    texto:"Agradecido de ser parte de esto!",
+                },
+            ]
         },
         {
             id : 5,
@@ -59,7 +65,13 @@ const celulares = {
             descripcion : "Pantalla Retina HD, Pantalla widescreen LCD Multi-Touch de 4.7 pulgadas (diagonal) con tecnología IPS y Resolución de 1334 x 750 pixeles a 326 ppi",
             foto : "/images/products/iphone-se-3ra.jpg",
             fecha : "13/09/2020 ",
-            comentarios :  ['Me podrian pasar disponibilidad de colores?','"Agradecido de ser parte de esto!",','"Promete mas de lo que es",','"Ame este celular y sus cualidades",']
+            comentarios: [
+                {
+                    id: 5,
+                    usuario: "Marisa",
+                    texto:"Agradecido de ser parte de esto!",
+                },
+            ]
         },
         {
             id: 6,
@@ -67,7 +79,13 @@ const celulares = {
             descripcion: " Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco, Resolución de 2532 x 1170 pixeles a 460 ppi",
             foto: "/images/products/iphone-12.jpg",
             fecha : "03/01/2023",
-            comentarios :  ['Me podrian pasar disponibilidad de colores?','"Agradecido de ser parte de esto!",','"Promete mas de lo que es",','"Ame este celular y sus cualidades",']
+            comentarios: [
+                {
+                    id: 6,
+                    usuario: "Tomas",
+                    texto:"Agradecido de ser parte de esto!",
+                },
+            ]
         },
         {
             id: 7,
@@ -75,7 +93,13 @@ const celulares = {
             descripcion: " Liquid Retina HD, Pantalla LCD Multi-Touch de 6,1 pulgadas (en diagonal) con tecnología IPS, Resolución de 1.792 por 828 píxeles a 326 p/p",
             foto: "/images/products/iphone-11.png",
             fecha : "22/08/2022",
-            comentarios :  ['Me podrian pasar disponibilidad de colores?','"Agradecido de ser parte de esto!",','"Promete mas de lo que es",','"Ame este celular y sus cualidades",']
+            comentarios: [
+                {
+                    id: 7,
+                    usuario: "Julian",
+                    texto:"Agradecido de ser parte de esto!",
+                },
+            ]
         },
         {
             id: 8,
@@ -83,7 +107,13 @@ const celulares = {
             descripcion: "Super Retina XDR, Pantalla OLED Multi-Touch de 5,8 pulgadas (en diagonal), Pantalla HDR, Resolución de 2.436 por 1.125 píxeles a 458 p/p",
             foto: "/images/products/iphone-11-pro.png",
             fecha : "24/10/2022",
-            comentarios :  ['Me podrian pasar disponibilidad de colores?','"Agradecido de ser parte de esto!",','"Promete mas de lo que es",','"Ame este celular y sus cualidades",']
+            comentarios: [
+                {
+                    id: 2,
+                    usuario: "Lucas",
+                    texto:"Agradecido de ser parte de esto!",
+                },
+            ]
         },
         {
             id: 9,
@@ -91,7 +121,13 @@ const celulares = {
             descripcion: "El iPhone X es un teléfono inteligente de Apple con pantalla OLED de 5.8 pulgadas, cámara trasera doble de 12 megapíxeles, procesador A11 Bionic, almacenamiento interno de 256 GB, carga inalámbrica y Face ID.",
             foto: "/images/products/iphone-x.png",
             fecha : "28/09/2021",
-            comentarios :  ['Me podrian pasar disponibilidad de colores?','"Agradecido de ser parte de esto!",','"Promete mas de lo que es",','"Ame este celular y sus cualidades",']
+            comentarios: [
+                {
+                    id: 9,
+                    usuario: "Juliana",
+                    texto:"Agradecido de ser parte de esto!",
+                },
+            ]
         },
         {
             id: 10,
@@ -99,7 +135,13 @@ const celulares = {
             descripcion: "El iPhone 8 es un teléfono inteligente de Apple con pantalla LCD de 4.7 pulgadas, cámara trasera de 12 megapíxeles, procesador A11 Bionic, almacenamiento interno de 64 GB, carga inalámbrica y Touch ID.",
             foto: "/images/products/iphone-8.png",
             fecha : "06/04/2020",
-            comentarios :  ['Me podrian pasar disponibilidad de colores?','"Agradecido de ser parte de esto!",','"Promete mas de lo que es",','"Ame este celular y sus cualidades",']
+            comentarios: [
+                {
+                    id: 10,
+                    usuario: "Isabel",
+                    texto:"Agradecido de ser parte de esto!",
+                },
+            ]
 
         },
     ]

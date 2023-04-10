@@ -22,12 +22,12 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for(let i=0; i=1; i++){%>
+						<% for(let i=0; i<1; i++){%>
                             <article>
                                 <img src="/images/users/default-image.png" alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="profile.html">Nombre usuario:</strong> <%= producto.lista[0].comentarios[i].usuario %></a>
+                                    <strong> <a href="profile.html"><%= producto.lista[0].comentarios[i].usuario %>:</strong></a>
                                     <%= producto.lista[0].comentarios[i].texto %></p>
                                 </div>
                             </article>
