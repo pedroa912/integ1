@@ -3,11 +3,10 @@ const router = express.Router();
 const productController = require('../controllers/celularesController');
 
 
-router.get('/productos', productController.index);
+router.get('/detalle', productController.index);
 
 router.get('/add', productController.add);
 
-router.get('/celulares', productController.show);
 
 router.get('/resultados-de-busqueda', productController.resultadosBusqueda);
 

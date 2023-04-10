@@ -6,7 +6,13 @@ const celulares = {
             descripcion :  "Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2532 x 1170 pixeles a 460 ppi ",
             foto : '/images/products/iphone-14.png', 
             fecha : " 25/01/2023",
-
+            comentarios: [
+                {
+                    id: 1,
+                    usuario: "Fernando",
+                    texto:"Me podrian pasar disponibilidad de colores?",
+                },
+            ]
 
         },
  
@@ -16,7 +22,13 @@ const celulares = {
             descripcion : " Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2556 x 1179 pixeles a 460 ppi",
             foto : '/images/products/iphone-14-pro.jpg',
             fecha : "17/01/2023",
-
+            comentarios: [
+                {
+                    id: 2,
+                    usuario: "Steve Jobs",
+                    texto:"Agradecido de ser parte de esto!",
+                },
+            ]
 
         },
         {
@@ -25,6 +37,13 @@ const celulares = {
             descripcion : "Pantalla Super Retina XDR, Pantalla OLED de 6.7 pulgadas (diagonal) sin marco y Resolución de 2796 x 1290 pixeles a 460 ppi",
             foto : "/images/products/iphone-14-pro-max.webp ",
             fecha : "03/02/2023",
+            comentarios: [
+                {
+                    id: 3,
+                    usuario: "Ignacio",
+                    texto:"Promete mas de lo que es",
+                },
+            ]
         },
         {
             id : 4,

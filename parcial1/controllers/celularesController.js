@@ -3,7 +3,7 @@ const users = require("../db/usuario");
 
 const celularesController = {
     index : function (req, res) {
-        return res.render('index', {producto: data, usuario: users, logueado: true})
+        return res.render('product', {producto: data, usuario: users, logueado: true})
     },
     // modelos :function(req, res) {
     //     let modelos = req.params.modelo;
@@ -26,9 +26,6 @@ const celularesController = {
     },
     resultadosBusqueda: function(req,res){
         res.render('search-results', {producto: data})
-    },
-    show: function (req, res) {
-        return res.render('product', {celular: data.lista, comentario: data.comentarios})
     }
 };
 module.exports = celularesController;
