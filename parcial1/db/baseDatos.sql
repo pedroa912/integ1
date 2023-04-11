@@ -63,6 +63,7 @@ VALUES (DEFAULT,'iphone 14','Pantalla Super Retina XDR, Pantalla OLED de 6.1 pul
 (DEFAULT,'iphone X','El iPhone X es un teléfono inteligente de Apple con pantalla OLED de 5.8 pulgadas, cámara trasera doble de 12 megapíxeles, procesador A11 Bionic, almacenamiento interno de 256 GB, carga inalámbrica y Face ID.','/images/products/iphone-x.png', 5),
 (DEFAULT,'iphone 8','El iPhone 8 es un teléfono inteligente de Apple con pantalla LCD de 4.7 pulgadas, cámara trasera de 12 megapíxeles, procesador A11 Bionic, almacenamiento interno de 64 GB, carga inalámbrica y Touch ID.','/images/products/iphone-8.png', 4);
 
+
 INSERT INTO comentarios(id, texto, id_usuario, id_producto)
 VALUES (DEFAULT, 'Hola, en dolares a cuanto lo dejas?', 1, 1),
 (DEFAULT, 'Capacidad de la batería?', 1, 1),
@@ -102,7 +103,7 @@ VALUES (DEFAULT, 'Hola, en dolares a cuanto lo dejas?', 1, 1),
 (DEFAULT, 'Excelente y muy buen producto!!!.', 5, 9),
 (DEFAULT, 'Carga super rápido, la batería dura el doble. Mucho más robusto. Lo recomiendo.', 5, 9),
 (DEFAULT, 'Buen día! te queda en stock? gracias', 5, 10),
-(DEFAULT, 'Es con sim?', '5','10'),
+(DEFAULT, 'Es con sim?', 5, 10),
 (DEFAULT, 'Excelente equipo, muy rápido y fluido.', 5, 10);
 
 
