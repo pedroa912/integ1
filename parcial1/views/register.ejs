@@ -10,34 +10,15 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form action="/my-handling-form-page" method="post">
-				<ul>
-				 <li>
-				   <label for="name">Nombre:</label>
-				   <input type="text" id="name" name="user_name">
-				 </li>
-				 <li>
-				   <label for="mail">Correo electrónico:</label>
-				   <input type="email" id="mail" name="user_mail">
-				 </li>
-				 <li>
-				   <label for="DNI">DNI:</label>
-				   <input type="text" id="DNI" name="user_DNI">
-				 </li>
-				 <li>
-					<label for="contrasenia">contrasenia:</label>
-					<input type="text" id="contrasenia" name="user_password">
-				  </li>
-				  <li>
-					<label for="repetir-contrasenia">repetir contrasenia:</label>
-					<input type="text" id="repetir-contrasenia" name="user_password">
-				  </li>
-				</ul>
-			   </form>
-			
-
-
-	
+			<form action="/login" method="get">
+				<input class="form-input" type="email" name="email" placeholder="Email">
+				<input class="form-input" type="text" name="Nombre de usuario" placeholder="Nombre de usuario">
+				<input class="form-input" type="password" name="contraseña" placeholder="Contraseña">
+				<label class="form-label"> <input class="form-input" type="date" name="Fecha de nacimiento"> Fecha de Nacimiento</label>
+				<input class="form-input" type="number" name="Documento" placeholder="Número de documento">
+				<label class="form-label"> <input class="form-input" type="text" name="Foto de perfil"> Foto de perfil </label>
+				<label class="form-label"> <button class="form-label" type="submit">Ingresar</button></label>
+			</form>	
 	<%- include('../views/partials/footer') %>
 	
 </body>

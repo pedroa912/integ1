@@ -1,5 +1,4 @@
-const celulares = require("../db/celularesDatos")
-const users = require("../db/usuario")
+const data = require("../db/celularesDatos")
 
 const usersController = {
    register : function (req, res) {
@@ -9,9 +8,9 @@ const usersController = {
        return res.render('login')
    },
    profile: function(req,res){
-    return res.render('profile',{producto: celulares, usuario: users, logueado: true})},
+    return res.render('profile',{producto: data.usuario, usuario: data.usuario, logueado: true})},
     profileEdit: function(req,res){
-        res.render('profile-edit', {productos: celulares.usuario, usuario: users, logueado: true})
+        res.render('profile-edit', {productos: data.productos, usuario: data.usuario, logueado: true})
    
     },
 };
