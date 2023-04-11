@@ -137,8 +137,8 @@ const celulares = {
             contraseña: "JuanLorcas",
             fechaDeNacimiento: "29/03/1986",
             numeroDeDocumento: "32478541",
-            fotoDePerfil: "default-image.png"
-        }   
+            fotoDePerfil: "/images/users/usuario3.jpg"
+        }
     ]
 };
 
