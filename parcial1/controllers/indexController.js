@@ -1,9 +1,9 @@
-const celulares = require("../db/celularesDatos")
+const data = require("../db/celularesDatos")
 
 const indexController = {
     index: function(req, res) {
       res.render('index', {
-        producto: celulares,
+        productoIndex: data.productos,
         logueado: false
       })
     },

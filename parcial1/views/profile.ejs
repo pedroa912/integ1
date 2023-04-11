@@ -37,12 +37,12 @@
 			<% for(let i=0; i<10; i++) {%>
                 <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="/productos/<%= producto.lista[i].id %>">
+                    <a href="/productos/<%= producto.productos[i].id %>">
                         <figure class="product-box_image">
-                            <img src="<%= producto.lista[i].foto %>" alt="">
+                            <img src="<%= producto.productos[i].foto %>" alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2><%= producto.lista[i].modelo %></h2>
+                            <h2><%= producto.productos[i].modelo %></h2>
                             <p> Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2532 x 1170 pixeles a 460 ppi</p>
                             <p>Comentarios: 50</p>
                         </article>
