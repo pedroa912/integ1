@@ -76,70 +76,64 @@ const celulares = {
         {
             usuario: "Fernando",
             texto:"Me podrian pasar disponibilidad de colores?",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario1.jpg"
         },
         {
             usuario: "Steve Jobs",
             texto:"Agradecido de ser parte de esto!",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario2.jpg"
         },
         {
             usuario: "Ignacio",
             texto:"Promete mas de lo que es",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario3.jpg"
         },
         {
             usuario: "Mariano",
             texto:"Agradecido de ser parte de esto!",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario4.jpg"
         },
         {
             id: 5,
             usuario: "Marisa",
             texto:"Agradecido de ser parte de esto!",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario5.jpg"
         },
         {
             id: 6,
             usuario: "Tomas",
             texto:"Agradecido de ser parte de esto!",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario6.jpeg"
         },
         {
             id: 7,
             usuario: "Julian",
             texto:"Agradecido de ser parte de esto!",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario7.jpg"
         },
         {
             id: 8,
             usuario: "Lucas",
             texto:"Agradecido de ser parte de esto!",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario8.jpg"
         },
         {
             id: 9,
             usuario: "Juliana",
             texto:"Agradecido de ser parte de esto!",
-            fotoPerfil: "/images/products/perfil/"
-        },
-        {
-            id: 10,
-            usuario: "Isabel",
-            texto:"Agradecido de ser parte de esto!",
-            fotoPerfil: "/images/products/perfil/"
+            fotoPerfil: "/images/users/usuario9.jpg"
         }
     ],
-    usuario: [
+    usuario: 
         {
             email:"Juancarlos@gmail.com",
             nombre: "Juan Carlos",  
             contraseña: "JuanLorcas",
             fechaDeNacimiento: "29/03/1986",
             numeroDeDocumento: "32478541",
-            fotoDePerfil: "default-image.png"
-        }   
-    ]
+            fotoDePerfil: "/images/users/usuario8.jpg"
+        }
+    
 };
 
 
