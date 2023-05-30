@@ -25,11 +25,11 @@ module.exports = (sequelize, dataTypes) => {
         /*        pertenece a    */
          
         comentario.belongsTo(models.usuario, {
-                as: "usuario",
+                as: "comentario_usuario",
                 foreingKey: "id_usuario"})
         comentario.belongsTo(models.producto, {
-                as: "producto",
-                foreingKey: "comentario_producto"
+                as: "comentario_producto",
+                foreingKey: "producto_id"
         })
        };
 
