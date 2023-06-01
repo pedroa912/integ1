@@ -21,8 +21,8 @@ const usersController = {
             mail: info.email,
             contrasenia: info.contrasenia,
             fotoPerfil: info.foto_de_perfil,
-            fecha: info.fecha_de_nacimiento,
-            dni: info.dni
+            fecha: info.Fecha_de_nacimiento,
+            dni: info.Documento
         }
 
         db.usuario.create(userSave)
