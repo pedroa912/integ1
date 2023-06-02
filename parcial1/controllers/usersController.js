@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const bcrypt = require('bcryptjs');
 
 const usersController = {
     register: function (req, res) {
@@ -20,7 +21,7 @@ const usersController = {
         let userSave = {
             mail: info.email,
             contrasenia: info.contrasenia,
-            fotoPerfil: info.foto_de_perfil,
+            fotoPerfil: bcrypt.hashSync(info.contrasenia, 10),
             fecha: info.Fecha_de_nacimiento,
             dni: info.Documento
         }
@@ -36,6 +37,11 @@ const usersController = {
         return res.redirect('/users/login')
     },
     loginPost: function(req, res) {
+
+        let emailpedido = req.body.email;
+        let contra = req.body.contrasenia
+
+
         return res.redirect('/users/profile')
     }
 
