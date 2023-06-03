@@ -46,10 +46,17 @@ const usersController = {
     loginPost: function(req, res) {
 
         let emailpedido = req.body.email;
-        let contra = req.body.contrasenia
+        let contra = req.body.contrasenia;
+
+        db.usuario.findOne()
+        .then((result) => {
+
+        }).catch((error) => {
+                console.log(error);
+        });
 
 
-        return res.redirect('/users/profile')
+        return res.redirect('/');
     }
 
 };
