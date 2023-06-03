@@ -1,6 +1,6 @@
 module.exports = (sequelize,dataTypes) => {
 
-    let alias = "usuario"
+    let alias = "Usuario"
 
     let cols = {
         id: {
@@ -12,6 +12,9 @@ module.exports = (sequelize,dataTypes) => {
             type: dataTypes.STRING
         },
         contrasenia: {
+            type: dataTypes.STRING
+        },
+        nombre: {
             type: dataTypes.STRING
         },
         fotoPerfil: {

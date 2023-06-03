@@ -7,11 +7,12 @@ use productos;
 create table usuarios(
 
 id                int            unsigned primary key auto_increment,
-mail              varchar(50)   not null,
+mail              varchar(50)    not null,
 contrasenia       varchar(100)   not null,
+nombre            varchar(50)    not null,
 fotoPerfil        varchar(200),
-fecha             date          not null,
-dni               int           not null UNIQUE,
+fecha             date           not null,
+dni               int            not null UNIQUE,
 
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -44,12 +45,12 @@ createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO usuarios(id, mail, contrasenia, fotoPerfil, fecha, dni)
-VALUES (default, 'Juancarlos@gmail.com', 'JuanLorcas', '/images/users/usuario1.jpg','1986-03-29', '32478541'),
-(default,'matiasrocha@hotmail.com', 'rochaesteban', '/images/users/usuario4.jpg', '1995-12-04', '37838709'),
-(default,'pedritoelrocho@gmail.com', 'turko123', '/images/users/usuario5.jpg', '2001-11-13', '43522951'),
-(default,'lolaino@gmail.com', 'lolopepe', '/images/users/usuario2.jpg', '1945-08-06','17684100'),
-(default,'isabel@gmail.com', 'lucifer', '/images/users/usuario1.jpg','1962-11-23', '19605018');
+INSERT INTO usuarios(id, mail, contrasenia, nombre, fotoPerfil, fecha, dni)
+VALUES (default, 'Juancarlos@gmail.com', 'JuanLorcas', 'juan', '/images/users/usuario1.jpg','1986-03-29', '32478541'),
+(default,'matiasrocha@hotmail.com', 'rochaesteban', 'matias', '/images/users/usuario4.jpg', '1995-12-04', '37838709'),
+(default,'pedritoelrocho@gmail.com', 'turko123', 'pedro', '/images/users/usuario5.jpg', '2001-11-13', '43522951'),
+(default,'lolaino@gmail.com', 'lolopepe', 'lorenzo', '/images/users/usuario2.jpg', '1945-08-06','17684100'),
+(default,'isabel@gmail.com', 'lucifer', 'isabella', '/images/users/usuario1.jpg','1962-11-23', '19605018');
 
 INSERT INTO productos(id, nombre, descripcion, foto, id_usuario)
 VALUES (DEFAULT,'iphone 14','Pantalla Super Retina XDR, Pantalla OLED de 6.1 pulgadas (diagonal) sin marco y Resolución de 2532 x 1170 pixeles a 460 ppi ','/images/products/iphone-14.png', 1),
@@ -62,7 +63,6 @@ VALUES (DEFAULT,'iphone 14','Pantalla Super Retina XDR, Pantalla OLED de 6.1 pul
 (DEFAULT,'iphone 11 pro','Super Retina XDR, Pantalla OLED Multi-Touch de 5,8 pulgadas (en diagonal), Pantalla HDR, Resolución de 2.436 por 1.125 píxeles a 458 p/p','/images/products/iphone-11-pro.png', 3),
 (DEFAULT,'iphone X','El iPhone X es un teléfono inteligente de Apple con pantalla OLED de 5.8 pulgadas, cámara trasera doble de 12 megapíxeles, procesador A11 Bionic, almacenamiento interno de 256 GB, carga inalámbrica y Face ID.','/images/products/iphone-x.png', 5),
 (DEFAULT,'iphone 8','El iPhone 8 es un teléfono inteligente de Apple con pantalla LCD de 4.7 pulgadas, cámara trasera de 12 megapíxeles, procesador A11 Bionic, almacenamiento interno de 64 GB, carga inalámbrica y Touch ID.','/images/products/iphone-8.png', 4);
-
 
 INSERT INTO comentarios(id, texto, id_usuario, id_producto)
 VALUES (DEFAULT, 'Hola, en dolares a cuanto lo dejas?', 1, 1),
@@ -106,6 +106,7 @@ VALUES (DEFAULT, 'Hola, en dolares a cuanto lo dejas?', 1, 1),
 (DEFAULT, 'Es con sim?', 5, 10),
 (DEFAULT, 'Excelente equipo, muy rápido y fluido.', 5, 10);
 
+DROP TABLE usuarios;
 
 
 
