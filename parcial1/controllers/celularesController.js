@@ -9,17 +9,18 @@ const celularesController = {
     show: (req, res) => {
         let id = req.params.id;
 
-        comentario.findByPk(id)
-        .then(function(result){
-            for (let i = 0; i < result.length; i++) {
-                if (id == result.producto[i].id) {
-                    return res.render("product",{
-                        productoInfo: result.producto[i], 
-                        comentarios: result.comentarios, 
-                        usuario: result.usuario, 
-                        logueado: true});
-                };
-            };
+        let rel = {
+            includes: [
+              {association: "comentario_usuario" , includes : [{association: "comentario_usario"}]}
+            ]
+          }
+
+        producto.findByPk(id, rel)
+            .then(function(result){
+                console.log(result);
+                return res.render("product",{
+                    columnas : result, 
+                    logueado: true});
         })
         .catch (function(error){
             console.log(error);

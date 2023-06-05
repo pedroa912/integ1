@@ -1,3 +1,4 @@
+const data = require('../db/celularesDatos');
 const db = require('../database/models')
 const Usuario = db.Usuario; //Alias del modelo
 const producto = db.Producto;

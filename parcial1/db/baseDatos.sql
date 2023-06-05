@@ -21,7 +21,7 @@ updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 create table productos(
 id                 int            unsigned primary key auto_increment,
 nombre             varchar(100)   not null,
-descripcion        varchar(200)   not null,
+descripcion        varchar(350)   not null,
 foto               varchar(200)   not null,
 id_usuario         int            unsigned,
 foreign key (id_usuario) REFERENCES usuarios(id),
