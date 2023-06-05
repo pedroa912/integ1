@@ -32,9 +32,31 @@ const celularesController = {
             logueado: true});
     },
     resultadosBusqueda: function(req,res){
-        res.render('search-results', {
-            productoSearch: data.productos,
-             comentarios: data.comentarios});
+        let productoSearch = req.query.search
+        db.Producto.findAll({
+            include:[
+                {association: "comentario_producto", include: "comentario_usuario" },
+                {association: "usuario_producto"}
+            ],
+            where: {
+                [op.or]:[{nombre: {[op.like]: `%${productoSearch}%`}}, 
+                {descripcion: {[op.like]: `%${productoSearch}%`}}
+            ]},
+            order: [["createdAt", "DESC"]]
+        })
+        .then(function(productos){
+            if (productos.length > 0) {
+                 res.render('search-results', {
+                    productos: productos,
+                    cantidad_comentarios: productos.comentario_producto
+                 })
+            } else {
+                return res.send("No hay resultados para su criterio de búsqueda")
+            }
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
     }
 };
 module.exports = celularesController;
