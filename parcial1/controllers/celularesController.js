@@ -11,7 +11,7 @@ const celularesController = {
 
         comentario.findByPk(id)
         .then(function(result){
-            for (let i = 0; i < result.producto.length; i++) {
+            for (let i = 0; i < result.length; i++) {
                 if (id == result.producto[i].id) {
                     return res.render("product",{
                         productoInfo: result.producto[i], 
