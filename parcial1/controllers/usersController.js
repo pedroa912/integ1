@@ -31,7 +31,7 @@ const usersController = {
             fotoPerfil: bcrypt.hashSync(info.contrasenia, 10),
             fecha: info.Fecha_de_nacimiento,
             dni: info.Documento
-        }
+        };
 
         usuario.create(userSave)
         .then(function (result) {
@@ -56,7 +56,7 @@ const usersController = {
         });
 
 
-        return res.redirect('/');
+        return res.redirect('/perfil');
     }
 
 };

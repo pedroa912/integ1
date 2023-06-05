@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = "comentario"
+    let alias = "Comentario"
 
     let cols = {
         id: {
@@ -24,10 +24,10 @@ module.exports = (sequelize, dataTypes) => {
     comentario.associate = function(models) {
         /*        pertenece a    */
          
-        comentario.belongsTo(models.usuario, {
+        comentario.belongsTo(models.Usuario, {
                 as: "comentario_usuario",
                 foreingKey: "id_usuario"})
-        comentario.belongsTo(models.producto, {
+        comentario.belongsTo(models.Producto, {
                 as: "comentario_producto",
                 foreingKey: "producto_id"
         })

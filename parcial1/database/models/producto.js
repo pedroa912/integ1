@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = "producto"
+    let alias = "Producto"
     /* 3er paso : Es crear una variable con la extructura de la tabla */
     let cols = {
         id: {
@@ -31,12 +31,12 @@ module.exports = (sequelize, dataTypes) => {
     let producto = sequelize.define(alias, cols, config)
 
     producto.associate = (models) => {
-        producto.belongsTo(models.usuario, {
+        producto.belongsTo(models.Usuario, {
             as: "usuario_producto",
             foreignKey: "id_usuario"
         })
 
-        producto.hasMany(models.comentario, {
+        producto.hasMany(models.Comentario, {
             as: "comentario_producto",
             foreignKey: "id_producto"
         })
