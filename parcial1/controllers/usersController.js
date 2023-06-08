@@ -25,7 +25,7 @@ const usersController = {
         let info = req.body;
 
         let userSave = {
-            mail: info.email,
+            mail: info.mail,
             contrasenia: bcrypt.hashSync(info.contrasenia, 10),
             nombre: info.nombre,
             fotoPerfil: info.fot_de_perfil,
@@ -44,13 +44,13 @@ const usersController = {
         return res.redirect('/users/login')
     },
     loginPost: function(req, res) {
-
-        let emailpedido = req.body.email;
+        let info = req.body;
+        let emailpedido = req.body.mail;
         let contra = req.body.contrasenia;
 
         let filtro = {
             where: [
-                {email: emailpedido}
+                {mail: emailpedido}
             ]
         }
 
@@ -60,7 +60,10 @@ const usersController = {
 
                 let contracorrecta = bcrypt.compareSync(contra, result.contrasenia);
                 
-                if(contracorrecta) {
+                if(result.dataValues.contra == contracorrecta) {
+
+                    req.session.user = result.dataValues
+                    
                     return res.redirect('/');
                 } else {
 
