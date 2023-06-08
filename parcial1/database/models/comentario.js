@@ -19,19 +19,19 @@ module.exports = (sequelize, dataTypes) => {
         underscorded: true,
     }
 
-    let comentario = sequelize.define(alias, cols, config)
+    let Comentario = sequelize.define(alias, cols, config)
 
-    comentario.associate = function(models) {
+    Comentario.associate = function(models) {
         /*        pertenece a    */
          
-        comentario.belongsTo(models.Usuario, {
+        Comentario.belongsTo(models.Usuario, {
                 as: "comentario_usuario",
                 foreingKey: "id_usuario"})
-        comentario.belongsTo(models.Producto, {
+        Comentario.belongsTo(models.Producto, {
                 as: "comentario_producto",
                 foreingKey: "producto_id"
         })
        };
 
-    return comentario
+    return Comentario
 }

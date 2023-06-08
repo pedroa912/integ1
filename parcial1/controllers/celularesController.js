@@ -1,15 +1,12 @@
 const data = require('../db/celularesDatos');
 const db = require('../database/models');
-const Usuario = db.Usuario; //Alias del modelo
-const producto = db.Producto;
-const comentario = db.Comentario;
 let op = db.Sequelize.Op;
 
 const celularesController = {
     show: (req, res) => {
         let id = req.params.id;
 
-        comentario.findByPk(id)
+        db.Comentario.findByPk(id)
         .then(function(result){
             for (let i = 0; i < result.length; i++) {
                 if (id == result.producto[i].id) {

@@ -34,18 +34,18 @@ module.exports = (sequelize,dataTypes) => {
         underscorded: true,
     }
 
-    let usuario = sequelize.define(alias,cols,config)
+    let Usuario = sequelize.define(alias,cols,config)
 
-    usuario.associate = function(models){
-        usuario.hasMany(models.Comentario, {
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Comentario, {
             as: "comentario_usuario",
             foreignKey: "id_usuario",
         })
 
-        usuario.hasMany(models.Producto, {
+        Usuario.hasMany(models.Producto, {
             as: "producto",
             foreignKey: "id_usuario"
         })
     }
-    return usuario
+    return Usuario
 }
