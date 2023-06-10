@@ -7,7 +7,7 @@ const session = require ('express-session')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var productosRouter = require('./routes/celulares');
+var productosRouter = require('./routes/products');
 
 
 var app = express();
@@ -22,9 +22,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session( { secret: "MyApp",
-        resave: false,
-        saveUninitialized: true }));
+app.use(session({
+  secret: "MyApp",
+  resave: false,
+  saveUninitialized: true
+}));
 
 
 app.use(function (req, res, next) {

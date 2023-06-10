@@ -2,7 +2,7 @@ const data = require('../db/celularesDatos');
 const db = require('../database/models');
 let op = db.Sequelize.Op;
 
-const celularesController = {
+const productController = {
     show: (req, res) => {
         let id = req.params.id;
 
@@ -41,7 +41,7 @@ const celularesController = {
             order: [["createdAt", "DESC"]]
         })
         .then(function(productos){
-            if (productos.length > 0) {
+            if (productos && productos.length > 0) {
                  res.render('search-results', {
                     productos: productos,
                     cantidad_comentarios: productos.comentario_producto
@@ -55,4 +55,4 @@ const celularesController = {
         })
     }
 };
-module.exports = celularesController;
+module.exports = productController;

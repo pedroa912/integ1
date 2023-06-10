@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const productController = require('../controllers/celularesController');
+const productController = require('../controllers/productController');
 
 
 router.get('/detalle/:id', productController.show);
@@ -13,4 +13,4 @@ router.get('/resultados-de-busqueda', productController.resultadosBusqueda);
 //router.get('/productos/modelo/:id', productController.index);
 
 
-module.exports = router
+module.exports = router;
