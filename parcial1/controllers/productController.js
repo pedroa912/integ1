@@ -3,6 +3,13 @@ const db = require('../database/models');
 let op = db.Sequelize.Op;
 
 const productController = {
+    index: function (req, res) {
+        return res.render('product', {
+            productos: productos, 
+            usuario: usuarios, 
+            logueado: true
+        })
+    },
     show: (req, res) => {
         let id = req.params.id;
 

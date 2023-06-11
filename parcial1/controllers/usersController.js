@@ -1,5 +1,4 @@
 const db = require("../database/models");
-const usuario = db.Usuario;
 const bcrypt = require('bcryptjs');
 
 const usersController = {
@@ -30,23 +29,28 @@ const usersController = {
             nombre: info.nombre,
             fotoPerfil: info.fot_de_perfil,
             fecha: info.Fecha_de_nacimiento,
-            dni: info.Documento
+            dni: info.Documento,
+            create_at: new Date(),
+            update_at: new Date()
         };
 
-        usuario.create(userSave)
-        .then(function (result) {
-            
+        db.Usuario.findOne({where:[{mail: info.mail}]})
+        .then(function(searchMail){
+            if(searchMail == null) {
+                db.Usuario.create(userSave)
+                return res.redirect('/users/login')
+            } else {
+                res.send('El mail ya está en uso. Prueba con otro')
+            }
         })
         .catch(function (error) {
             console.log(error);
         })
-
-        return res.redirect('/users/login')
     },
     loginPost: function(req, res) {
         let info = req.body;
-        let emailpedido = req.body.mail;
-        let contra = req.body.contrasenia;
+        let emailpedido = info.mail;
+        let contra = info.contrasenia;
 
         let filtro = {
             where: [
@@ -54,7 +58,7 @@ const usersController = {
             ]
         }
 
-        usuario.findOne(filtro)
+        db.Usuario.findOne(filtro)
         .then((result) => {
             if (result != null) {
 
@@ -81,6 +85,11 @@ const usersController = {
 
 
         // return res.redirect('/perfil');
+    },
+    logout: function(req,res) {
+        req.session.destroy()
+        res.clearCookie("cookieUser")
+        res.redirect("/")
     }
 
 };
