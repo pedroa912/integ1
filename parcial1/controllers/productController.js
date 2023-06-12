@@ -52,6 +52,17 @@ const productController = {
         .catch(function(error) {
             console.log(error);
         })
-    }
-};
+    },
+    // store : (req, res) => {
+    //     let info = req.body;
+    //     movie
+    //       .create(info)
+    //       .then((result) => {
+    //         return res.redirect("/movies/all");
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //       });
+    // }
+    };
 module.exports = productController;
