@@ -10,6 +10,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         texto: {
             type: dataTypes.STRING
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
         }
     }
 
@@ -26,11 +32,11 @@ module.exports = (sequelize, dataTypes) => {
          
         comentario.belongsTo(models.Usuario, {
                 as: "comentario_usuario",
-                foreingKey: "id_usuario"
+                foreignKey: "id_usuario"
             })
         comentario.belongsTo(models.Producto, {
                 as: "comentario_producto",
-                foreingKey: "producto_id"
+                foreignKey: "producto_id"
         })
        };
 

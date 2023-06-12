@@ -65,7 +65,7 @@ const usersController = {
                     return res.redirect('/');
                 } else {
 
-                    return res.send('La contraseña es incorrecta');
+                    return res.send('La contraseña es incorrecta'); //esto lo tenemos que hacer con errors
                 }
 
             }else {

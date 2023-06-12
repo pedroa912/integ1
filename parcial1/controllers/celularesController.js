@@ -11,7 +11,7 @@ const celularesController = {
 
         let rel = {
             includes: [
-              {association: "comentario_usuario" , includes : [{association: "comentario_usario"}]}
+              {association: "comentario_usuario", include: "comentario_usario"} 
             ]
           }
 
@@ -49,7 +49,7 @@ const celularesController = {
                  res.render('search-results', {
                     productos: productos,
                     cantidad_comentarios: productos.comentario_producto
-                 })
+                })
             } else {
                 return res.send("No hay resultados para su criterio de búsqueda")
             }
