@@ -6,18 +6,23 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= productoSearch[0].modelo %></h2> 
-			<p class="product-detail-edit">
-				<a href="/productos/add">Editar</a>
-			</p>
+			<h2 class="products-title">Resultados de búsqueda</h2> 
 		</div>
 		<div class="product-detail">
 			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= productoSearch[0].foto %>" alt="" class="product-detail-img">
-					<p class="product-detail-description">
-						<%= productoSearch[0].descripcion %></p>
-				</article>
+				<% for(let producto of productos) {%>
+					<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/productos/detalle/<%= producto.id %>">
+							<img src="<%= producto.foto %>" alt="" class="product-detail-img">
+							<article class="product-box_data">
+								<h2><%= producto.modelo %></h2>
+								<p> <%= producto.descripcion %></p>
+							</article>
+						</a>
+					</section>
+				</div>          
+				<% } %>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<% for(let i=0; i< comentarios.length; i++){%>
@@ -30,13 +35,7 @@
                                 </div>
                             </article>
                         <% } %>
-
 					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
 				</div>
 			</div>
 		</div>

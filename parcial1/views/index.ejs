@@ -7,7 +7,7 @@
         <%- include('../views/partials/headerLogueado.ejs') %>
     <% } else { %>
         <%- include('../views/partials/header.ejs') %>
-    <% } %>
+    <% } %> 
 	<!-- /Header -->
 	<!-- Banner -->
 	<div class="banner">
@@ -39,7 +39,7 @@
                         </figure>
                         <article class="product-box_data">
                             <h2> <%= productoIndex[i].nombre %></h2>
-							<p><%= productoIndex.usuario_producto[i].mail %></p>
+							<p><%= productoIndex[i].mail %></p>
                             <p> <%= productoIndex[i].descripcion %></p>
                         </article>
                     </a>
