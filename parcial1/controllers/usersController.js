@@ -65,7 +65,7 @@ const usersController = {
 
                 let contracorrecta = bcrypt.compareSync(contra, result.contrasenia);
                 
-                if(result.dataValues.contra == contracorrecta) {
+                if(contracorrecta) {
 
                     req.session.user = result.dataValues
                     
