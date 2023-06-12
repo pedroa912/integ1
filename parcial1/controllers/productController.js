@@ -3,30 +3,18 @@ const db = require('../database/models');
 let op = db.Sequelize.Op;
 
 const productController = {
-    index: function (req, res) {
-        return res.render('product', {
-            productos: productos, 
-            usuario: usuarios, 
-            logueado: true
-        })
-    },
-    show: (req, res) => {
+      show: (req, res) => {
         let id = req.params.id;
-        let rel = [
-            {association: "comentario_producto", include: "comentario_usuario" },
-            {association: "usuario_producto"}]
+        console.log(id);
+       let rel = {include: [{association: "usuario", include: "comentario" }]}
         
-        db.Comentario.findByPk(id, rel)
+        db.Producto.findByPk(id, rel)
         .then(function(result){
-            for (let i = 0; i < producto.length; i++) {
-                if (id == result.producto[i].id) {
                     return res.render("product",{
-                        productoInfo: result.producto[i], 
-                        comentarios: result.comentarios, 
-                        usuario: result.usuario, 
-                        logueado: true});
-                };
-            };
+                        productoInfo: result,
+                        logueado: true
+                        });
+
         })
         .catch (function(error){
             console.log(error);

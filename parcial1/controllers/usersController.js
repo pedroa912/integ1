@@ -63,7 +63,7 @@ const usersController = {
         .then((result) => {
             if (result != null) {
 
-                let contracorrecta = bcrypt.compareSync(contra, result.contrasenia);
+                let contracorrecta = bcrypt.compareSync(contra, result.contrasenia);//son dos datos, un string y uno que esta hasheado en la base de datos. Este mismo va a tratar de hasear el string para luego compararlo con el de la base de datos, a ver si da igual.
                 
                 if(contracorrecta) {
 

@@ -16,6 +16,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         updatedAt: {
             type: dataTypes.DATE
+        },
+        id_usuario: {
+            type: dataTypes.INTEGER
+        },
+        id_producto: {
+            type: dataTypes.INTEGER
         }
     }
 
@@ -31,12 +37,12 @@ module.exports = (sequelize, dataTypes) => {
         /*        pertenece a    */
          
         Comentario.belongsTo(models.Usuario, {
-                as: "comentario_usuario",
-                foreingKey: "id_usuario"
+                as: "usuario",
+                foreignKey: "id_usuario"
             })
         Comentario.belongsTo(models.Producto, {
-                as: "comentario_producto",
-                foreignKey: "producto_id"
+                as: "producto",
+                foreignKey: "id_producto"
         })
        };
 
