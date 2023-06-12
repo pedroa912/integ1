@@ -43,7 +43,7 @@ module.exports = (sequelize,dataTypes) => {
         })
 
         Usuario.hasMany(models.Producto, {
-            as: "producto",
+            as: "usuario_producto",
             foreignKey: "id_usuario"
         })
     }
