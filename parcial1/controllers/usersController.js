@@ -1,3 +1,4 @@
+const data = require('../db/celularesDatos');
 const db = require("../database/models");
 const bcrypt = require('bcryptjs');
 
@@ -64,10 +65,12 @@ const usersController = {
 
                 let contracorrecta = bcrypt.compareSync(contra, result.contrasenia);
                 
-                if(result.dataValues.contra == contracorrecta) {
+                if(contracorrecta) {
 
                     req.session.user = result.dataValues
-                    
+                    if (req.body.recordame != undefined) {
+                        res.cookie("userId", result.id, {maxAge: 1000 * 60 * 5} );
+                    }
                     return res.redirect('/');
                 } else {
 
@@ -88,7 +91,7 @@ const usersController = {
     },
     logout: function(req,res) {
         req.session.destroy()
-        res.clearCookie("cookieUser")
+        res.clearCookie("userId")
         res.redirect("/")
     }
 

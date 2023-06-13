@@ -1,7 +1,11 @@
 <%- include('../views/partials/head') %>
 
 <body>
-	<%- include('../views/partials/header') %>
+	<% if(locals.user != null) { %>
+        <%- include('../views/partials/headerLogueado.ejs') %>
+    <% } else { %>
+        <%- include('../views/partials/header.ejs') %>
+    <% } %>
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
@@ -10,14 +14,14 @@
 		</div>
 		<div class="product-detail">
 			<div class="row">
-				<% for(let producto of productos) {%>
+				<% for(let i = 0; i < productos.length; i++) {%>
 					<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/productos/detalle/<%= producto.id %>">
-							<img src="<%= producto.foto %>" alt="" class="product-detail-img">
+						<a href="/productos/detalle/<%= productos[i].id %>">
+							<img src="<%= productos[i].foto %>" alt="" class="product-detail-img">
 							<article class="product-box_data">
-								<h2><%= producto.modelo %></h2>
-								<p> <%= producto.descripcion %></p>
+								<h2><%= productos[i].modelo %></h2>
+								<p> <%= productos[i].descripcion %></p>
 							</article>
 						</a>
 					</section>

@@ -26,10 +26,10 @@ module.exports = (sequelize, dataTypes) => {
          
         Comentario.belongsTo(models.Usuario, {
                 as: "comentario_usuario",
-                foreingKey: "id_usuario"})
+                foreignKey: "id_usuario"})
         Comentario.belongsTo(models.Producto, {
                 as: "comentario_producto",
-                foreingKey: "producto_id"
+                foreignKey: "producto_id"
         })
        };
 

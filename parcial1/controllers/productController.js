@@ -38,7 +38,6 @@ const productController = {
         let productoSearch = req.query.search
         db.Producto.findAll({
             include:[
-                {association: "comentario_producto", include: "comentario_usuario" },
                 {association: "usuario_producto"}
             ],
             where: {
@@ -48,11 +47,10 @@ const productController = {
             order: [["createdAt", "DESC"]]
         })
         .then(function(productos){
-            if (productos && productos.length > 0) {
-                 res.render('search-results', {
+            if (productos.length > 0) {
+                res.render('search-results', {
                     productos: productos,
-                    cantidad_comentarios: productos.comentario_producto
-                 })
+                })
             } else {
                 return res.send("No hay resultados para su criterio de búsqueda")
             }
