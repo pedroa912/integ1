@@ -15,7 +15,7 @@ const usersController = {
             usuario: data.usuario, 
             logueado: true })
     },
-    profileEdit: function (req, res) {
+    profileEdit: (req, res) => {
         res.render('profile-edit', { 
             usuario: data.usuario, 
             logueado: true })
@@ -63,7 +63,7 @@ const usersController = {
         .then((result) => {
             if (result != null) {
 
-                let contracorrecta = bcrypt.compareSync(contra, result.contrasenia);
+                let contracorrecta = bcrypt.compareSync(contra, result.contrasenia);//son dos datos, un string y uno que esta hasheado en la base de datos. Este mismo va a tratar de hasear el string para luego compararlo con el de la base de datos, a ver si da igual.
                 
                 if(contracorrecta) {
 
@@ -74,7 +74,7 @@ const usersController = {
                     return res.redirect('/');
                 } else {
 
-                    return res.send('La contraseña es incorrecta');
+                    return res.send('La contraseña es incorrecta'); //esto lo tenemos que hacer con errors
                 }
 
             }else {

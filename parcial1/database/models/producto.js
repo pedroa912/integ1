@@ -19,6 +19,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         id_usuario: {
             type: dataTypes.INTEGER
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
         }
     }
 
@@ -32,12 +38,12 @@ module.exports = (sequelize, dataTypes) => {
 
     Producto.associate = (models) => {
         Producto.belongsTo(models.Usuario, {
-            as: "usuario_producto",
+            as: "usuario",
             foreignKey: "id_usuario"
         })
 
         Producto.hasMany(models.Comentario, {
-            as: "comentario_producto",
+            as: "comentario",
             foreignKey: "id_producto"
         })
     }

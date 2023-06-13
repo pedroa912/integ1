@@ -3,27 +3,18 @@ const db = require('../database/models');
 let op = db.Sequelize.Op;
 
 const productController = {
-    index: function (req, res) {
-        return res.render('product', {
-            productos: productos, 
-            usuario: usuarios, 
-            logueado: true
-        })
-    },
-    show: (req, res) => {
+      show: (req, res) => {
         let id = req.params.id;
-
-        db.Comentario.findByPk(id)
+        console.log(id);
+       let rel = {include: [{association: "usuario", include: "comentario" }]}
+        
+        db.Producto.findByPk(id, rel)
         .then(function(result){
-            for (let i = 0; i < result.length; i++) {
-                if (id == result.producto[i].id) {
                     return res.render("product",{
-                        productoInfo: result.producto[i], 
-                        comentarios: result.comentarios, 
-                        usuario: result.usuario, 
-                        logueado: true});
-                };
-            };
+                        productoInfo: result,
+                        logueado: true
+                        });
+
         })
         .catch (function(error){
             console.log(error);
@@ -36,16 +27,17 @@ const productController = {
     },
     resultadosBusqueda: function(req,res){
         let productoSearch = req.query.search
-        db.Producto.findAll({
-            include:[
-                {association: "usuario_producto"}
-            ],
+        let relaciones = {
             where: {
-                [op.or]:[{nombre: {[op.like]: `%${productoSearch}%`}}, 
+                [op.or]: [{nombre: {[op.like]: `%${productoSearch}%`}}, 
                 {descripcion: {[op.like]: `%${productoSearch}%`}}
             ]},
-            order: [["createdAt", "DESC"]]
-        })
+            include:[
+                {association: "usuario_producto"}
+            ]
+            //order: [["createdAt", "DESC"]]
+        }
+        db.Producto.findAll(relaciones)
         .then(function(productos){
             if (productos.length > 0) {
                 res.render('search-results', {
@@ -58,6 +50,17 @@ const productController = {
         .catch(function(error) {
             console.log(error);
         })
-    }
-};
+    },
+    // store : (req, res) => {
+    //     let info = req.body;
+    //     movie
+    //       .create(info)
+    //       .then((result) => {
+    //         return res.redirect("/movies/all");
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //       });
+    // }
+    };
 module.exports = productController;

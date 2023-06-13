@@ -9,7 +9,9 @@ router.get('/add', productController.add);
 
 router.get('/resultados-de-busqueda', productController.resultadosBusqueda);
 
-router.get('/productos', productController.index);
+//router.get('/productos', productController.index);
+
+//router.post("/register", productController.store)
 
 
 module.exports = router;
