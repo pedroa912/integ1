@@ -53,16 +53,20 @@ const productController = {
             console.log(error);
         })
     },
-    // store : (req, res) => {
-    //     let info = req.body;
-    //     movie
-    //       .create(info)
-    //       .then((result) => {
-    //         return res.redirect("/movies/all");
-    //       })
-    //       .catch((err) => {
-    //         console.log(err);
-    //       });
-    // }
+    store : (req, res) => {
+        let info = req.body;
+        let comentarioNuevo = {
+            nuevo: info.comentarioNuevo,
+            productoId: req.params.id,
+            usuarioComentando: req.session.usuario.id
+        }
+        db.comentario.create(comentarioNuevo, [['createdAt', 'DESC']])
+          .then((result) => {
+            return res.redirect("/producto/detalle/" + productoId);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    }
     };
 module.exports = productController;
