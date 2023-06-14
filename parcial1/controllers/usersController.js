@@ -68,7 +68,9 @@ const usersController = {
                 if(contracorrecta) {
 
                     req.session.user = result.dataValues
-                    
+                    if (req.body.recordame != undefined) {
+                        res.cookie("userId", result.id, {maxAge: 1000 * 60 * 5} );
+                    }
                     return res.redirect('/');
                 } else {
 
@@ -89,7 +91,7 @@ const usersController = {
     },
     logout: function(req,res) {
         req.session.destroy()
-        res.clearCookie("cookieUser")
+        res.clearCookie("userId")
         res.redirect("/")
     }
 

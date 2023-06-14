@@ -1,6 +1,6 @@
 <%- include('../views/partials/head') %>
 <body>
-	<% if(logueado) { %>
+	<% if(locals.user != null) { %>
         <%- include('../views/partials/headerLogueado.ejs') %>
     <% } else { %>
         <%- include('../views/partials/header.ejs') %>

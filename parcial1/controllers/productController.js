@@ -27,24 +27,24 @@ const productController = {
     },
     resultadosBusqueda: function(req,res){
         let productoSearch = req.query.search
-        let relaciones = {
+        let filtrado = {
             where: {
                 [op.or]: [{nombre: {[op.like]: `%${productoSearch}%`}}, 
                 {descripcion: {[op.like]: `%${productoSearch}%`}}
             ]},
-            include:[
-                {association: "comentario_producto", include: "comentario_usuario" },
-                {association: "usuario_producto"}
-            ]
+            include:{
+                all: true,
+                nested: true
+            }
             //order: [["createdAt", "DESC"]]
         }
-        db.Producto.findAll(relaciones)
+        db.Producto.findAll(filtrado)
         .then(function(productos){
-            if (productos && productos.length > 0) {
-                 res.render('search-results', {
+            if (productos.length > 0) {
+                res.render('search-results', {
                     productos: productos,
-                    cantidad_comentarios: productos.comentario_producto
-                 })
+                    cantComentario: productos.comentario
+                })
             } else {
                 return res.send("No hay resultados para su criterio de búsqueda")
             }
