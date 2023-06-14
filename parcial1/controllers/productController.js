@@ -6,10 +6,11 @@ const productController = {
       show: (req, res) => {
         let id = req.params.id;
         console.log(id);
-       let rel = {include: [{association: "usuario", include: "comentario" }]}
+       let rel = {include: [ {association: "usuario"},  {association: "comentario", include: [{association: "usuario"} ]  } ]}
         
         db.Producto.findByPk(id, rel)
         .then(function(result){
+            //return res.send(result)
                     return res.render("product",{
                         productoInfo: result,
                         logueado: true
@@ -62,7 +63,7 @@ const productController = {
         }
         db.comentario.create(comentarioNuevo, [['createdAt', 'DESC']])
           .then((result) => {
-            return res.redirect("/producto/detalle/" + productoId);
+            return res.redirect("/producto/detalle/" + req.params.id);
           })
           .catch((err) => {
             console.log(err);
