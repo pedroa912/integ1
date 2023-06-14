@@ -10,9 +10,8 @@ const productController = {
         
         db.Producto.findByPk(id, rel)
         .then(function(result){
-                    return res.render("product",{
-                        productoInfo: result,
-                        logueado: true
+            return res.render("product",{
+                productoInfo: result
                         });
 
         })
@@ -22,16 +21,17 @@ const productController = {
     }, 
     add: function (req, res) {
         return res.render('product-add', {
-            usuario: data.usuario, 
-            logueado: true});
+            usuario: data.usuario
+        });
     },
     resultadosBusqueda: function(req,res){
         let productoSearch = req.query.search
         let filtrado = {
             where: {
-                [op.or]: [{nombre: {[op.like]: `%${productoSearch}%`}}, 
-                {descripcion: {[op.like]: `%${productoSearch}%`}}
-            ]},
+                [op.or]: [
+                    {nombre: {[op.like]: `%${productoSearch}%`}}, 
+                    {descripcion: {[op.like]: `%${productoSearch}%`}}
+                ]},
             include:{
                 all: true,
                 nested: true
@@ -40,14 +40,9 @@ const productController = {
         }
         db.Producto.findAll(filtrado)
         .then(function(productos){
-            if (productos.length > 0) {
-                res.render('search-results', {
-                    productos: productos,
-                    cantComentario: productos.comentario
-                })
-            } else {
-                return res.send("No hay resultados para su criterio de búsqueda")
-            }
+            res.render('search-results', {
+                productos: productos
+            })
         })
         .catch(function(error) {
             console.log(error);

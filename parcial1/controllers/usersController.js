@@ -21,6 +21,11 @@ const usersController = {
             logueado: true })
 
     },
+    editPost: (req, res) => {
+        res.render('profile-edit', { 
+            usuario: data.usuario})
+
+    },
     store: function (req, res) {
         let info = req.body;
 
