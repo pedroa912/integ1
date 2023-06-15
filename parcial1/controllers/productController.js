@@ -6,7 +6,7 @@ const productController = {
       show: (req, res) => {
         let id = req.params.id;
         console.log(id);
-       let rel = {include: [{association: "usuario", include: "comentario" }]}
+        let rel = {include: [{association: "usuario", include: "comentario" }]}
         
         db.Producto.findByPk(id, rel)
         .then(function(result){

@@ -20,7 +20,7 @@
 				<div>
 					<ul class="">
 						<li><%= usuario.email %></li>
-						<li>8 productos</li>
+						<li><%= usuario.producto.length %></li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -37,17 +37,17 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<% for(let i=0; i < productos.length; i++) {%>
+			<% for(let i=0; i < producto.length; i++) {%>
                 <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="/productos/<%= productos[i].id %>">
+                    <a href="/productos/detalle/<%= usuario.producto[i].id %>">
                         <figure class="product-box_image">
-                            <img src="<%= productos[i].foto %>" alt="">
+                            <img src="<%= usuario.producto[i].foto %>" alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2><%= productos[i].modelo %></h2>
-                            <p> <%= productos[i].descripcion %></p>
-                            <p>Comentarios: 50</p>
+                            <h2><%= usuario.producto[i].modelo %></h2>
+                            <p> <%= usuario.producto[i].descripcion %></p>
+                            <p>Comentarios: <%= usuario.producto[i].comentario.length %></p>
                         </article>
                     </a>
                 </section>
