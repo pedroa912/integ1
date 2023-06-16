@@ -1,3 +1,4 @@
+
 const data = require('../db/celularesDatos');
 const db = require("../database/models");
 const bcrypt = require('bcryptjs');
@@ -19,6 +20,11 @@ const usersController = {
         res.render('profile-edit', { 
             usuario: data.usuario, 
             logueado: true })
+
+    },
+    editPost: (req, res) => {
+        res.render('profile-edit', { 
+            usuario: data.usuario})
 
     },
     store: function (req, res) {

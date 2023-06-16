@@ -3,9 +3,11 @@ var router = express.Router();
 let usersController = require('../controllers/usersController')
 
 
-router.get('/perfil', usersController.show);
+router.get('/perfil/:id', usersController.show);
 
 router.get('/edit', usersController.profileEdit);
+
+router.post('/edit', usersController.editPost);
 
 router.get('/register', usersController.register);
 

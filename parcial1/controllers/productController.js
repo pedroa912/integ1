@@ -10,10 +10,9 @@ const productController = {
         
         db.Producto.findByPk(id, rel)
         .then(function(result){
-            //return res.send(result)
-                    return res.render("product",{
-                        productoInfo: result,
-                        logueado: true
+            console.log(result);
+            return res.render("product",{
+                productoInfo: result
                         });
 
         })
@@ -23,16 +22,17 @@ const productController = {
     }, 
     add: function (req, res) {
         return res.render('product-add', {
-            usuario: data.usuario, 
-            logueado: true});
+            usuario: data.usuario
+        });
     },
     resultadosBusqueda: function(req,res){
         let productoSearch = req.query.search
         let filtrado = {
             where: {
-                [op.or]: [{nombre: {[op.like]: `%${productoSearch}%`}}, 
-                {descripcion: {[op.like]: `%${productoSearch}%`}}
-            ]},
+                [op.or]: [
+                    {nombre: {[op.like]: `%${productoSearch}%`}}, 
+                    {descripcion: {[op.like]: `%${productoSearch}%`}}
+                ]},
             include:{
                 all: true,
                 nested: true
@@ -41,33 +41,33 @@ const productController = {
         }
         db.Producto.findAll(filtrado)
         .then(function(productos){
-            if (productos.length > 0) {
-                res.render('search-results', {
-                    productos: productos,
-                    cantComentario: productos.comentario
-                })
-            } else {
-                return res.send("No hay resultados para su criterio de búsqueda")
-            }
+            res.render('search-results', {
+                productos: productos
+            })
         })
         .catch(function(error) {
             console.log(error);
         })
     },
-    store : (req, res) => {
-        let info = req.body;
+    comentarioStore : (req, res) => {
+        let formulario = req.body
+        let id = req.params.id
+        console.log(req.session.user);
         let comentarioNuevo = {
-            nuevo: info.comentarioNuevo,
-            productoId: req.params.id,
-            usuarioComentando: req.session.usuario.id
+            texto: formulario.texto,
+            id_usuario: req.session.user.id,//req.session.user.id, tengo que poner la session bien para que funcione esto asi que no puedo todavbia pero ya anda todo.
+            id_producto: req.params.id
         }
-        db.comentario.create(comentarioNuevo, [['createdAt', 'DESC']])
-          .then((result) => {
-            return res.redirect("/producto/detalle/" + req.params.id);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        //return res.send(comentarioNuevo)
+        // if (req.session.user != null) {
+             db.Comentario.create(comentarioNuevo)
+             .then((result) => {
+                 return res.redirect("/productos/detalle/" + id);
+           })
+           .catch((err) => {
+             console.log(err);
+           });
+        
     }
     };
 module.exports = productController;

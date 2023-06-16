@@ -11,7 +11,7 @@ router.get('/resultados-de-busqueda', productController.resultadosBusqueda);
 
 //router.get('/productos', productController.index);
 
-router.post("/register", productController.store)
+router.post("/comentario/:id", productController.comentarioStore)
 
 
 module.exports = router;
