@@ -40,9 +40,12 @@
 							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 						</form>
 					<% } else { %>
-						<p>chau</p>
+						<p>logueate mi vida</p>
 					<% } %>
 					<hr>
+					<form class="form" action="/productos/borrar/<%= productoInfo.id %>" method="POST">
+						<button type="submit" class="buy-now-button">borrar producto</button>
+					</form>
 				</div>
 			</div>
 		</div>

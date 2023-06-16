@@ -66,10 +66,12 @@ const productController = {
         })
     }, 
     productoBorrar: (req,res) => {
-      let id = req.body.id;
+      let id = req.params.id;
+      console.log(id + ' aca');
       let criterio = {
-        where : [{id : id}]
+        where: [{id : id}]
       };
+      console.log(criterio + 'tambien');
       db.Producto.destroy(criterio)
       .then((result) => {
         return res.redirect("/")
