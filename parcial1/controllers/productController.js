@@ -1,4 +1,4 @@
-const data = require('../db/celularesDatos');
+/* const data = require('../db/celularesDatos'); */
 const db = require('../database/models');
 let op = db.Sequelize.Op;
 
@@ -21,25 +21,26 @@ const productController = {
         });
     }, 
     add: function (req, res) {
-        return res.render('product-add', {
-            usuario: data.usuario,
 
-        });
+        return res.render('product-add'); 
     },
     productoAgregar: function (req, res) {
-        let formulario = req.body
-        let id = req.params.id
-        let productoNuevo = {
-            
-        }
-
-        db.producto.create(productoNuevo)
+      let formulario = req.body;
+      let productoNuevo = {
+        nombre: formulario.NombreProducto,
+        descripcion: formulario.DescripcionProducto,
+        foto: formulario.ImagenProducto,
+        id_usuario: req.session.user.id,
+        createdAt: formulario.FechaCargaProducto
+      };
+      
+      db.Producto.create(productoNuevo)
              .then((result) => {
                  return res.redirect("/");
            })
            .catch((err) => {
              console.log(err);
-           });
+           });  
     },
     resultadosBusqueda: function(req, res){
         let productoSearch = req.query.search
@@ -70,7 +71,7 @@ const productController = {
         console.log(req.session.user);
         let comentarioNuevo = {
             texto: formulario.texto,
-            id_usuario: req.session.user.id,//req.session.user.id, tengo que poner la session bien para que funcione esto asi que no puedo todavbia pero ya anda todo.
+            id_usuario: req.session.user.id,//req.session.user.id, 
             id_producto: req.params.id
         }
         //return res.send(comentarioNuevo)
