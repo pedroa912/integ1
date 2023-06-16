@@ -34,8 +34,8 @@
 				</ul>
 	
 				<ul class="right-navbar">
-					<li><a href="/users/perfil">
-						<%= user.nombre %> <i class="fas fa-user"></i>
+					<li><a href="/users/perfil/<%= locals.user.id %>">
+						Bienvenido <%= user.nombre %>! <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>

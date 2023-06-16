@@ -22,14 +22,29 @@ const productController = {
     }, 
     add: function (req, res) {
         return res.render('product-add', {
-            usuario: data.usuario
+            usuario: data.usuario,
+
         });
     },
-    resultadosBusqueda: function(req,res){
+    productoAgregar: function (req, res) {
+        let formulario = req.body
+        let id = req.params.id
+        let productoNuevo = {
+            
+        }
+
+        db.producto.create(productoNuevo)
+             .then((result) => {
+                 return res.redirect("/");
+           })
+           .catch((err) => {
+             console.log(err);
+           });
+    },
+    resultadosBusqueda: function(req, res){
         let productoSearch = req.query.search
         let filtrado = {
-            where: {
-                [op.or]: [
+            where: {[op.or]: [
                     {nombre: {[op.like]: `%${productoSearch}%`}}, 
                     {descripcion: {[op.like]: `%${productoSearch}%`}}
                 ]},

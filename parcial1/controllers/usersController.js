@@ -11,21 +11,51 @@ const usersController = {
         return res.render('login')
     },
     show: function (req, res) {
-        return res.render('profile', { 
-            productos: data.productos, 
-            usuario: data.usuario, 
-            logueado: true })
+        let id = req.params.id;
+        let rel = {include: [{association: "producto"},{association: "comentario"} ]}
+
+        db.Usuario.findByPk(id, rel)
+        .then(function(result){
+            let userCheck = false;
+            let userSession = req.session.user;
+            if (userSession != null && id == userSession.id){
+                res.locals.user = result.dataValues
+                userCheck = true
+                return res.render("profile",{usuario: result, userCheck: userCheck})
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     },
     profileEdit: (req, res) => {
-        res.render('profile-edit', { 
-            usuario: data.usuario, 
-            logueado: true })
-
+        if (req.session.user == null){
+            return res.redirect("/")
+        }
+        else {
+            let userId = req.session.user.id;
+            db.Usuario.findByPk(userId)
+            .then(function(result){
+                console.log(result)
+                return res.render("profile-edit",{user: result})
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        }
     },
     editPost: (req, res) => {
-        res.render('profile-edit', { 
-            usuario: data.usuario})
+        let info = req.body
+        let userId = req.session.user.id
 
+        db.Usuario.update(info, {where : [{id: userId}]})
+        .then(function(result){
+            console.log(result)
+            return res.redirect("/users/id/" + userId)
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     },
     store: function (req, res) {
         let info = req.body;

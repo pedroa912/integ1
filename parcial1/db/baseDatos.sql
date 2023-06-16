@@ -47,7 +47,7 @@ updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 INSERT INTO usuarios(id, mail, contrasenia, nombre, fotoPerfil, fecha, dni)
 VALUES (default, 'Juancarlos@gmail.com', 'JuanLorcas', 'juan', '/images/users/usuario1.jpg','1986-03-29', '32478541'),
-(default,'matiasrocha@hotmail.com', 'rochaesteban', 'matias', '/images/users/usuario4.jpg', '1995-12-04', '37838709'),
+(default,'matiasrocha@hotmail.com', 'rchaoesteban', 'matias', '/images/users/usuario4.jpg', '1995-12-04', '37838709'),
 (default,'pedritoelrocho@gmail.com', 'turko123', 'pedro', '/images/users/usuario5.jpg', '2001-11-13', '43522951'),
 (default,'lolaino@gmail.com', 'lolopepe', 'lorenzo', '/images/users/usuario2.jpg', '1945-08-06','17684100'),
 (default,'isabel@gmail.com', 'lucifer', 'isabella', '/images/users/usuario1.jpg','1962-11-23', '19605018');

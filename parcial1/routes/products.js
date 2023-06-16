@@ -13,5 +13,7 @@ router.get('/resultados-de-busqueda', productController.resultadosBusqueda);
 
 router.post("/comentario/:id", productController.comentarioStore)
 
+router.post("/agregar", productController.comentarioStore)
+
 
 module.exports = router;
