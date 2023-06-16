@@ -6,7 +6,10 @@ const productController = {
       show: (req, res) => {
         let id = req.params.id;
         console.log(id);
-       let rel = {include: [ {association: "usuario"},  {association: "comentario", include: [{association: "usuario"} ]  } ]}
+       let rel = {include: [ 
+        {association: "usuario"},
+        {association: "comentario", include: [{association: "usuario"}]}],
+        order: [["comentario", "createdAt", "DESC"]]}
         
         db.Producto.findByPk(id, rel)
         .then(function(result){
@@ -52,8 +55,8 @@ const productController = {
             include:{
                 all: true,
                 nested: true
-            }
-            //order: [["createdAt", "DESC"]]
+            },
+            order: [["createdAt", "DESC"]]
         }
         db.Producto.findAll(filtrado)
         .then(function(productos){
@@ -82,7 +85,6 @@ const productController = {
     },
     comentarioStore : (req, res) => {
         let formulario = req.body
-        let id = req.params.id
         console.log(req.session.user);
         let comentarioNuevo = {
             texto: formulario.texto,
@@ -93,7 +95,7 @@ const productController = {
         // if (req.session.user != null) {
              db.Comentario.create(comentarioNuevo)
              .then((result) => {
-                 return res.redirect("/productos/detalle/" + id);
+                 return res.redirect("/productos/detalle/" + id_producto);
            })
            .catch((err) => {
              console.log(err);
