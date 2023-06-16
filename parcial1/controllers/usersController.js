@@ -11,14 +11,17 @@ const usersController = {
     },
     show: function (req, res) {
         let id = req.params.id;
-        let rel = {include: {association: "usuario"}}
+        let rel = {include: [{association: "producto"},{association: "comentario"} ]}
+
         db.Usuario.findByPk(id, rel)
         .then(function(result){
+            let userCheck = false;
             let userSession = req.session.user;
             if (userSession != null && id == userSession.id){
                 res.locals.user = result.dataValues
+                userCheck = true
+                return res.render("profile",{usuario: result, userCheck: userCheck})
             }
-            return res.render("profile",{usuario: result})
         })
         .catch(function (error) {
             console.log(error);
@@ -30,7 +33,7 @@ const usersController = {
         }
         else {
             let userId = req.session.user.id;
-            db.User.findByPk(userId)
+            db.Usuario.findByPk(userId)
             .then(function(result){
                 console.log(result)
                 return res.render("profile-edit",{user: result})
@@ -41,12 +44,13 @@ const usersController = {
         }
     },
     editPost: (req, res) => {
-        let info = req.body;
-        let userId = req.session.user.id;
-        db.User.update(info, {where : [{id: userId}]})
+        let info = req.body
+        let userId = req.session.user.id
+
+        db.Usuario.update(info, {where : [{id: userId}]})
         .then(function(result){
             console.log(result)
-            return res.redirect("/users/id/" + id)
+            return res.redirect("/users/id/" + userId)
         })
         .catch(function (error) {
             console.log(error);
