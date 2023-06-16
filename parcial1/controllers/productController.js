@@ -64,6 +64,19 @@ const productController = {
         .catch(function(error) {
             console.log(error);
         })
+    }, 
+    productoBorrar: (req,res) => {
+      let id = req.body.id;
+      let criterio = {
+        where : [{id : id}]
+      };
+      db.Producto.destroy(criterio)
+      .then((result) => {
+        return res.redirect("/")
+
+      }).catch((err) => {
+        console.log(err);
+      });
     },
     comentarioStore : (req, res) => {
         let formulario = req.body
