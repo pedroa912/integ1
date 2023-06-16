@@ -15,5 +15,7 @@ router.post("/comentario/:id", productController.comentarioStore)
 
 router.post("/agregar", productController.productoAgregar)
 
+router.post("/delete", productController.productoBorrar)
+
 
 module.exports = router;
