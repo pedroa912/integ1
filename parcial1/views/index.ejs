@@ -39,7 +39,7 @@
                         </figure>
                         <article class="product-box_data">
                             <h2> <%= productoIndex[i].nombre %></h2>
-							<a href="/users"<p><%= productoIndex[i].usuario.mail %></p>
+							<p> Creador: <a href="/users/perfil/<%= productoIndex[i].usuario.id %>"><%=productoIndex[i].usuario.mail%></a></p>
                             <p> <%= productoIndex[i].descripcion %></p>
                         </article>
                     </a>
