@@ -70,7 +70,7 @@ const usersController = {
             fecha: info.Fecha_de_nacimiento,
             dni: info.Documento,
             create_at: new Date(),
-            update_at: new Date()
+            update_at: new Date()   
         };
         let errors = {}
 

@@ -128,9 +128,9 @@ const celulares = {
         {
             email:"Juancarlos@gmail.com",
             nombre: "Juan Carlos",  
-            contraseña: "JuanLorcas",
+            contrasenia: "JuanLorcas",
             fechaDeNacimiento: "29/03/1986",
-            numeroDeDocumento: "32478541",
+            dni: "32478541",
             fotoDePerfil: "/images/users/usuario8.jpg"
         }
     

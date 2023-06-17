@@ -27,7 +27,7 @@
                                 <img src="<%= productoInfo.comentario[i].usuario.fotoPerfil %>" alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/users/perfil/"><%= productoInfo.comentario[i].usuario.nombre %>:</strong></a>
+                                    <strong> <a href="/users/perfil/ <%= productoInfo.comentario[i].usuario.id %>"><%= productoInfo.comentario[i].usuario.nombre %>:</strong></a>
                                     <%= productoInfo.comentario[i].texto %></p>
                                 </div>
                             </article>
@@ -43,9 +43,6 @@
 						<h2><a href="/users/login">Tenes que estar logeado para comentar</a></h2>
 					<% } %>
 					<hr>
-					<form class="form" action="/productos/borrar/<%= productoInfo.id %>" method="POST">
-						<button type="submit" class="buy-now-button">borrar producto</button>
-					</form>
 				</div>
 			</div>
 		</div>

@@ -38,12 +38,12 @@ const productController = {
       };
       
       db.Producto.create(productoNuevo)
-             .then((result) => {
-                 return res.redirect("/");
-           })
-           .catch((err) => {
-             console.log(err);
-           });  
+      .then((result) => {
+        return res.redirect("/");
+        })
+        .catch((err) => {
+            console.log(err);
+        });  
     },
     resultadosBusqueda: function(req, res){
         let productoSearch = req.query.search
