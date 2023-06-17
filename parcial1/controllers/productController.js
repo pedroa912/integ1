@@ -8,7 +8,7 @@ const productController = {
         console.log(id);
        let rel = {include: [ 
         {association: "usuario"},
-        {association: "comentario", include: [{association: "usuario"}]}],
+        {association: "comentario", include: {association: "usuario"}}],
         order: [["comentario", "createdAt", "DESC"]]}
         
         db.Producto.findByPk(id, rel)

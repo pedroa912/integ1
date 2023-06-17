@@ -59,6 +59,8 @@ const usersController = {
     },
     store: function (req, res) {
         let info = req.body;
+        let emailpedido = info.mail
+        let contra = info.contrasenia.length
 
         let userSave = {
             mail: info.mail,
@@ -70,19 +72,34 @@ const usersController = {
             create_at: new Date(),
             update_at: new Date()
         };
+        let errors = {}
 
-        db.Usuario.findOne({where:[{mail: info.mail}]})
-        .then(function(searchMail){
-            if(searchMail == null) {
-                db.Usuario.create(userSave)
-                return res.redirect('/users/login')
-            } else {
-                res.send('El mail ya está en uso. Prueba con otro')
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+        if (emailpedido == ""){
+            errors.message = "El mail esta vacio"
+            res.locals.errors = errors
+            return res.render("register")
+        } else if (contra == "") {
+            errors.message = "La contraseña esta vacia"
+            res.locals.errors = errors
+            return res.render("register")
+        } else if (contra <= 3) {
+            errors.message = "La contraseña necesita como minimo 3 caracteres"
+            res.locals.errors = errors
+            return res.render("register")
+        }else {
+            db.Usuario.findOne({where:[{mail: info.mail}]})
+            .then(function(searchMail){
+                if(searchMail == null) {
+                    db.Usuario.create(userSave)
+                    return res.redirect('/users/login')
+                } else {
+                    res.send('El mail ya está en uso. Prueba con otro')
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        }
     },
     loginPost: function(req, res) {
         let info = req.body;
@@ -94,8 +111,18 @@ const usersController = {
                 {mail: emailpedido}
             ]
         }
+        let errors = {}
 
-        db.Usuario.findOne(filtro)
+        if (emailpedido == ""){
+            errors.message = "El mail esta vacio"
+            res.locals.errors = errors
+            return res.render("login")
+        } else if (contra.length == "") {
+            errors.message = "La contraseña esta vacia"
+            res.locals.errors = errors
+            return res.render("login")
+        } else {
+            db.Usuario.findOne(filtro)
         .then((result) => {
             if (result != null) {
 
@@ -109,28 +136,24 @@ const usersController = {
                     }
                     return res.redirect('/');
                 } else {
-
-                    return res.send('La contraseña es incorrecta'); //esto lo tenemos que hacer con errors
+                    errors.message = "La contraseña es incorrecta"
+                    res.locals.errors = errors
+                    return res.render('login');
                 }
-
             }else {
-                return res.send('El usuario no existe');
+                errors.message = "El mail no existe"
+                res.locals.errors = errors
+                return res.render('login');
             }
-
-
         }).catch((error) => {
-                console.log(error);
+            console.log(error);
         });
-
-
-        // return res.redirect('/perfil');
+        }
     },
     logout: function(req,res) {
         req.session.destroy()
         res.clearCookie("userId")
         res.redirect("/")
     }
-
-};
-
+}
 module.exports = usersController;
