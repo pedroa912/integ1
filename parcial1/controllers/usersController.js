@@ -1,33 +1,37 @@
-
-const data = require('../db/celularesDatos');
 const db = require("../database/models");
 const bcrypt = require('bcryptjs');
 
 const usersController = {
+    show: function (req, res) {
+        let id = req.params.id;
+        let rel ={
+            include: [ 
+                {association: "producto"},
+                {association: "comentario", include: [ {association: "producto"}, {association:"usuario"}]}],
+               };
+        db.Usuario.findByPk(id, rel)
+        .then(function(result){
+            let userCheck = false;
+            let userSession = req.session.user;
+            if (userSession != null && id == userSession.id){
+            res.locals.user = result.dataValues
+            userCheck = true
+            return res.render("profile",{usuario: result, userCheck: userCheck});
+            } else {
+                return res.render('profile-search', {usuarioOtro: result});
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+    }, 
     register: function (req, res) {
         return res.render('register')
     },
     login: function (req, res) {
         return res.render('login')
     },
-    show: function (req, res) {
-        let id = req.params.id;
-        let rel = {include: [{association: "producto"},{association: "comentario"} ]}
-
-        db.Usuario.findByPk(id, rel)
-        .then(function(result){
-            let userCheck = false;
-            let userSession = req.session.user;
-            if (userSession != null && id == userSession.id){
-                res.locals.user = result.dataValues
-                userCheck = true
-                return res.render("profile",{usuario: result, userCheck: userCheck})
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-    },
+    
     profileEdit: (req, res) => {
         if (req.session.user == null){
             return res.redirect("/")
@@ -155,5 +159,5 @@ const usersController = {
         res.clearCookie("userId")
         res.redirect("/")
     }
-}
+};
 module.exports = usersController;
