@@ -6,6 +6,9 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Ingresar</h2>
+				<% if (locals.errors){ %>
+					<h3 style="color: red"><%= errors.message  %></h3>
+				<% } %>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<form action="/users/login" method="post">
