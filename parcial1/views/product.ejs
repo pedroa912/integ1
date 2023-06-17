@@ -1,11 +1,10 @@
 <%- include('../views/partials/head') %>
 <body>
-	<% if(locals.user != null) { %>
+ 	<% if(locals.user != null) { %>
         <%- include('../views/partials/headerLogueado.ejs') %>
     <% } else { %>
         <%- include('../views/partials/header.ejs') %>
     <% } %>
-	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= productoInfo.nombre %></h2> 
@@ -43,12 +42,21 @@
 						<h2><a href="/users/login">Tenes que estar logeado para comentar</a></h2>
 					<% } %>
 					<hr>
+					<% if (locals.user != null) { %>
+						<form class="form" action="/productos/borrar/<%= productoInfo.id %>" method="POST">
+							<button type="submit">borrar producto</button>
+						</form>
+						<form class="form" action="/productos/editar/<%=productoInfo.id%>" method="GET">
+							<button type="submit">editar producto</button>
+						</form>
+					<% } else { %>
+						
+						<% } %>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- /product detail -->
-	<%- include('../views/partials/footer') %>
-
+		<!-- /product detail -->
+		<%- include('../views/partials/footer') %>
 </body>	
 </html>

@@ -19,5 +19,7 @@ router.post('/login', usersController.loginPost);
 
 router.post('/logout', usersController.logout);
 
+router.get("/buscarperfil/:id", usersController.show)
+
 
 module.exports = router;

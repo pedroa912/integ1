@@ -23,13 +23,13 @@ module.exports = (sequelize, dataTypes) => {
         id_producto: {
             type: dataTypes.INTEGER
         }
-    }
+    };
 
     let config = {
         tablename: "comentarios",
         timestamps: true,
         underscorded: true,
-    }
+    };
 
     let Comentario = sequelize.define(alias, cols, config)
 
@@ -47,4 +47,4 @@ module.exports = (sequelize, dataTypes) => {
        };
 
     return Comentario
-}
+};
