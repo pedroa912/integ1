@@ -1,5 +1,6 @@
 /* const data = require('../db/celularesDatos'); */
 const db = require('../database/models');
+let Producto = db.Producto
 let op = db.Sequelize.Op;
 
 const productController = {
@@ -69,12 +70,9 @@ const productController = {
         })
     }, 
     productoBorrar: (req,res) => {
-      let id = req.params.id;
-      console.log(id + ' aca');
-      let criterio = {
-        where: [{id : id}]
-      };
-      console.log(criterio + 'tambien');
+     // let id_producto = req.body.id;
+      criterio = {where: {id: req.params.id}}
+      //return res.send(criterio)
       db.Producto.destroy(criterio)
       .then((result) => {
         return res.redirect("/")
@@ -83,7 +81,25 @@ const productController = {
         console.log(err);
       });
     },
-    comentarioStore : (req, res) => {
+    productoEditar: (req, res) => {
+        id = req.params.id
+        let productoEditado = {
+            nombre: req.body.productoEditado,
+            descripcion: req.body.descripcion,
+            //imagen: req.file.filename
+            id_usuario: req.session.user.id 
+        }
+
+        db.Producto.update (productoEditado, {where: {id: id}})
+            .then(function (result) {
+                return res.redirect ("/productos/detalle" + req.params.id);
+            })
+            .catch(function(error) {
+                console.log(error);
+            })
+    
+    },
+    comentarioStore: (req, res) => {
         let formulario = req.body
         console.log(req.session.user);
         let comentarioNuevo = {

@@ -32,13 +32,13 @@ module.exports = (sequelize,dataTypes) => {
         updatedAt: {
             type: dataTypes.DATE
         }
-    }
+    };
 
     let config = {
         tablename: "usuarios",
         timestamps: true,
         underscorded: true,
-    }
+    };
 
     let Usuario = sequelize.define(alias,cols,config)
 
@@ -52,6 +52,6 @@ module.exports = (sequelize,dataTypes) => {
             as: "producto",
             foreignKey: "id_usuario"
         })
-    }
+    };
     return Usuario
-}
+};

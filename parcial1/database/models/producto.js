@@ -26,13 +26,13 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: {
             type: dataTypes.DATE
         }
-    }
+    };
 
     let config = {
         tablename: "productos",
         timestamps: true,
         underscorded: true,
-    }
+    };
 
     let Producto = sequelize.define(alias, cols, config)
 
@@ -46,7 +46,7 @@ module.exports = (sequelize, dataTypes) => {
             as: "comentario",
             foreignKey: "id_producto"
         })
-    }
+    };
 
     return Producto
-}
+};
