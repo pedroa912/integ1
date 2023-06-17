@@ -1,28 +1,29 @@
 /* const data = require('../db/celularesDatos'); */
 const db = require('../database/models');
-let Producto = db.Producto
+let Producto = db.Producto;
 let op = db.Sequelize.Op;
 
 const productController = {
       show: (req, res) => {
         let id = req.params.id;
-        console.log(id);
-       let rel = {include: [ 
+        let rel = {
+        order: [["comentario", "createdAt", "DESC"]] , 
+        include: [ 
         {association: "usuario"},
-        {association: "comentario", include: {association: "usuario"}}],
-        order: [["comentario", "createdAt", "DESC"]]}
+        {association: "comentario", include: [ {association: "usuario"}, {association:"producto"}]}],
+       }
         
-        db.Producto.findByPk(id, rel)
+        Producto.findByPk(id, rel)
         .then(function(result){
-            console.log(result);
+            //res.send(result);
             return res.render("product",{
                 productoInfo: result
-                        });
+                        });  
 
-        })
+         })
         .catch (function(error){
             console.log(error);
-        });
+        }); 
     }, 
     add: function (req, res) {
 
@@ -81,23 +82,32 @@ const productController = {
         console.log(err);
       });
     },
+    paginaEditar: function(req,res){
+        let id = req.params.id;
+        Producto.findByPk(id)
+        .then(function(result){
+            res.render("product-edit", {productoInfo:result})
+        }) 
+        
+    },
     productoEditar: (req, res) => {
-        id = req.params.id
-        let productoEditado = {
-            nombre: req.body.productoEditado,
-            descripcion: req.body.descripcion,
-            //imagen: req.file.filename
-            id_usuario: req.session.user.id 
-        }
 
-        db.Producto.update (productoEditado, {where: {id: id}})
+         let productoEditado = {
+            nombre: req.body.NombreProducto,
+            descripcion: req.body.DescripcionProducto,
+            foto: req.body.ImagenProducto,
+            id_usuario: req.session.user.id,
+            updatedAt: new Date()
+        } 
+
+        db.Producto.update(productoEditado, {where: {id: req.params.id}})
             .then(function (result) {
-                return res.redirect ("/productos/detalle" + req.params.id);
+                return res.redirect ("/productos/detalle/" + req.params.id);
             })
             .catch(function(error) {
                 console.log(error);
             })
-    
+     
     },
     comentarioStore: (req, res) => {
         let formulario = req.body

@@ -5,8 +5,7 @@
     <% } else { %>
         <%- include('../views/partials/header.ejs') %>
     <% } %>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
+    <div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
@@ -14,17 +13,12 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12">
 			</h2>
-			<form  action="/productos/agregar" method="post">
+			<form  action="/productos/editar/<%=productoInfo.id%>" method="post">
                 <ul>suari
                     <li><input class="form-input" type="text" name="ImagenProducto" id="" placeholder="Imagen de producto"></li>
                     <li><input class="form-input" type="text" name="NombreProducto" id="" placeholder="Nombre del producto"></li>
                     <li><input class="form-input" type="text" name="DescripcionProducto" id="" placeholder="Descripcion" ></li>
-                    <li> <input class="form-input" type="date" id="" placeholder="Fecha de carga" ></li>
-                    <li><button class="form-label" type="submit">Agregar Producto</button></li>
+                    <li><button class="form-label" type="submit">Editar producto</button></li>
                 </ul>
             </form>
-
 	<%- include('../views/partials/footer') %>
-</body>
-
-</html>

@@ -19,6 +19,7 @@ router.post("/borrar/:id", productController.productoBorrar)
 
 router.post("/editar/:id", productController.productoEditar)
 
+router.get("/editar/:id", productController.paginaEditar)
 
 
 module.exports = router;
